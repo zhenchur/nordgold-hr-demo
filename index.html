@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nordgold HR</title>
+  </head>
+  <body>
+    <div id="smooth">
+      <main id="content">
+        <section class="hero" aria-label="Nordgold careers">
+          <div class="scene" aria-hidden="true">
+            <div class="media" id="media">
+              <img class="bg" src="/src/assets/hero-bg.png" alt="" />
+              <img class="worker" src="/src/assets/hero-worker.png" alt="" />
+              <div class="veil"></div>
+            </div>
+            <svg class="mask-svg" id="maskSvg" aria-hidden="true">
+              <polygon id="maskSector"></polygon>
+            </svg>
+            <svg class="guide-svg" id="guideSvg" aria-hidden="true">
+              <line id="upperRay" />
+              <line id="lowerRay" />
+              <line id="axisLine" />
+              <line id="travelLine" />
+              <line id="yLine" />
+              <circle id="centerDot" r="6" />
+              <circle id="travelDot" r="10" />
+            </svg>
+          </div>
+
+          <header class="nav">
+            <div class="nav-left">
+              <a class="job-btn" href="#vacancies">
+                <span>Все вакансии</span>
+                <img src="/src/assets/ico-user.svg" alt="" />
+              </a>
+              <nav class="links" aria-label="Основная навигация">
+                <a href="#mines">Рудники</a>
+                <a href="#terms">Условия работы</a>
+                <a href="#about">О нас</a>
+                <a href="#contacts">Контакты</a>
+              </nav>
+            </div>
+
+            <a class="brand" href="/" aria-label="Nordgold">
+              <img src="/src/assets/logo.png" alt="Nordgold" />
+            </a>
+
+            <div class="nav-right">
+              <div class="career">
+                <span>Начало карьеры</span>
+                <a href="#fast-track">Fast track</a>
+                <a href="#sprint">Sprint</a>
+              </div>
+              <a class="phone" href="tel:88007005555">
+                <img src="/src/assets/ico-phone.svg" alt="" />
+                <span>8 800 700 55 55</span>
+              </a>
+              <button class="lang" type="button" aria-label="Сменить язык">
+                <img src="/src/assets/ico-lang.svg" alt="" />
+              </button>
+            </div>
+          </header>
+
+          <h1 class="title">
+            <span class="line">Стань частью команды</span>
+            <span class="line">и успеха Nordgold</span>
+          </h1>
+
+          <form class="search" action="#vacancies">
+            <label for="q">Найти вакансию</label>
+            <input id="q" name="q" type="search" aria-label="Найти вакансию" />
+            <button type="submit" aria-label="Искать">
+              <img src="/src/assets/ico-search.svg" alt="" />
+            </button>
+          </form>
+
+          <div class="vac" id="vacancies">
+            <a class="tab" href="#shift">
+              <span>Вахта</span>
+              <small>(12)</small>
+            </a>
+            <a class="tab" href="#internship">
+              <span>Стажировка</span>
+              <small>(4)</small>
+            </a>
+            <a class="tab" href="#office">
+              <span>Офис</span>
+              <small>(9)</small>
+            </a>
+            <a class="tab" href="#women">
+              <span>Женщинам</span>
+              <small>(6)</small>
+            </a>
+            <a class="tab tab-hot" href="#all">
+              <span>Все вакансии</span>
+              <small>(28)</small>
+            </a>
+          </div>
+          <span class="bar" aria-hidden="true"></span>
+          <div class="lock" aria-hidden="true"></div>
+
+          <details class="debug" id="debug">
+            <summary>Debug</summary>
+            <form class="debug-form" id="debugForm">
+              <label>Center X <output id="centerXOut">6.7%</output><input id="centerX" type="range" min="0" max="100" step="0.5" value="6.7" /></label>
+              <label>Center Y <output id="centerYOut">82%</output><input id="centerY" type="range" min="0" max="100" step="0.5" value="82" /></label>
+              <label>Upper <output id="upperOut">123deg</output><input id="upperOpen" type="range" min="0" max="180" step="1" value="123" /></label>
+              <label>Lower <output id="lowerOut">37deg</output><input id="lowerOpen" type="range" min="0" max="180" step="1" value="37" /></label>
+              <label>Axis <output id="axisOut">-47deg</output><input id="axisDeg" type="range" min="-180" max="180" step="1" value="-47" /></label>
+              <label>Travel <output id="travelOut">26%</output><input id="travelFrom" type="range" min="0" max="70" step="0.5" value="26" /></label>
+              <label>Y offset <output id="yOut">+28%</output><input id="yOffset" type="range" min="-160" max="160" step="0.5" value="28" /></label>
+              <label>Duration <output id="durationOut">1.25s</output><input id="duration" type="range" min="0.2" max="3" step="0.01" value="1.25" /></label>
+              <label>Ease
+                <select id="ease">
+                  <option value="none">none</option>
+                  <option value="power2.out">power2.out</option>
+                  <option value="power3.out">power3.out</option>
+                  <option value="power4.out">power4.out</option>
+                  <option value="power2.inOut">power2.inOut</option>
+                  <option value="power3.inOut">power3.inOut</option>
+                  <option value="expo.inOut" selected>expo.inOut</option>
+                </select>
+              </label>
+              <div class="debug-actions">
+                <button id="playMask" type="button">Play</button>
+                <button id="resetMask" type="button">Reset</button>
+                <button id="finalMask" type="button">Final</button>
+                <label class="check"><input id="showGuide" type="checkbox" /> Guides</label>
+              </div>
+            </form>
+          </details>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
