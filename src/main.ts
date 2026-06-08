@@ -66,6 +66,10 @@ function qs<T extends Element>(selector: string) {
   return node;
 }
 
+function qsa<T extends Element>(selector: string) {
+  return Array.from(document.querySelectorAll<T>(selector));
+}
+
 function initScroll() {
   const lenis = new Lenis({
     autoRaf: false,
@@ -335,3 +339,148 @@ qs<HTMLButtonElement>("#playMask").addEventListener("click", () => playMask(true
 qs<HTMLButtonElement>("#resetMask").addEventListener("click", resetMask);
 qs<HTMLButtonElement>("#finalMask").addEventListener("click", finalMask);
 window.addEventListener("resize", renderMask);
+
+function initPeopleStats() {
+  const number = document.querySelector<HTMLElement>("[data-people-number]");
+  const dots = qsa<HTMLButtonElement>("[data-people-dot]");
+  const values = ["7800", "54", "12"];
+  let current = 0;
+  let timer = 0;
+
+  if (!number || dots.length === 0) {
+    return;
+  }
+
+  function setActive(next: number) {
+    dots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === next));
+  }
+
+  function show(next: number) {
+    if (next === current) {
+      return;
+    }
+
+    const duration = reduceMotion ? 0 : 0.22;
+    current = next;
+    setActive(current);
+
+    gsap.timeline()
+      .to(number, { y: -18, autoAlpha: 0, duration, ease: "power2.out" })
+      .set(number, { textContent: values[current], y: 18 })
+      .to(number, { y: 0, autoAlpha: 1, duration, ease: "power2.out" });
+  }
+
+  function schedule() {
+    window.clearInterval(timer);
+    timer = window.setInterval(() => show((current + 1) % values.length), 3600);
+  }
+
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => {
+      show(dotIndex);
+      schedule();
+    });
+  });
+
+  setActive(current);
+  schedule();
+}
+
+function initBenefitsSlider() {
+  const slider = document.querySelector<HTMLElement>(".benefits-slider");
+  const cards = qsa<HTMLElement>(".benefit-card");
+  const prev = document.querySelector<HTMLButtonElement>("[data-benefits-prev]");
+  const next = document.querySelector<HTMLButtonElement>("[data-benefits-next]");
+  const gap = 39;
+  let index = 0;
+  let isMoving = false;
+  let cardWidth = 0;
+  let slots = [0, 0, 0];
+
+  if (!slider || cards.length < 4 || !prev || !next) {
+    return;
+  }
+
+  const sliderEl = slider;
+
+  function cardAt(offset: number) {
+    return (index + offset + cards.length) % cards.length;
+  }
+
+  function measure() {
+    cardWidth = (sliderEl.clientWidth - gap * 2) / 3;
+    slots = [0, cardWidth + gap, (cardWidth + gap) * 2];
+  }
+
+  function setCard(cardIndex: number, slot: number, alpha: number) {
+    gsap.set(cards[cardIndex], {
+      width: cardWidth,
+      x: slots[slot],
+      autoAlpha: alpha
+    });
+  }
+
+  function layout() {
+    measure();
+    cards.forEach((card) => gsap.set(card, { width: cardWidth, autoAlpha: 0 }));
+    setCard(cardAt(0), 0, 1);
+    setCard(cardAt(1), 1, 1);
+    setCard(cardAt(2), 2, 1);
+  }
+
+  function go(direction: 1 | -1) {
+    if (isMoving) {
+      return;
+    }
+
+    isMoving = true;
+    measure();
+
+    const duration = reduceMotion ? 0 : 0.56;
+    const fadeDuration = reduceMotion ? 0 : 0.22;
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.inOut" },
+      onComplete: () => {
+        index = (index + direction + cards.length) % cards.length;
+        layout();
+        isMoving = false;
+      }
+    });
+
+    if (direction === 1) {
+      const outgoing = cards[cardAt(0)];
+      const firstMover = cards[cardAt(1)];
+      const secondMover = cards[cardAt(2)];
+      const incoming = cards[cardAt(3)];
+
+      gsap.set(incoming, { width: cardWidth, x: slots[2], autoAlpha: 0 });
+      tl.to(outgoing, { autoAlpha: 0, duration: fadeDuration, ease: "power2.out" }, 0)
+        .to(firstMover, { x: slots[0], duration }, 0.1)
+        .to(secondMover, { x: slots[1], duration }, 0.1)
+        .to(incoming, { autoAlpha: 1, duration: fadeDuration, ease: "power2.out" }, 0.34);
+    } else {
+      const incoming = cards[cardAt(-1)];
+      const firstMover = cards[cardAt(0)];
+      const secondMover = cards[cardAt(1)];
+      const outgoing = cards[cardAt(2)];
+
+      gsap.set(incoming, { width: cardWidth, x: slots[0], autoAlpha: 0 });
+      tl.to(outgoing, { autoAlpha: 0, duration: fadeDuration, ease: "power2.out" }, 0)
+        .to(firstMover, { x: slots[1], duration }, 0.1)
+        .to(secondMover, { x: slots[2], duration }, 0.1)
+        .to(incoming, { autoAlpha: 1, duration: fadeDuration, ease: "power2.out" }, 0.34);
+    }
+  }
+
+  layout();
+  prev.addEventListener("click", () => go(-1));
+  next.addEventListener("click", () => go(1));
+  window.addEventListener("resize", () => {
+    if (!isMoving) {
+      layout();
+    }
+  });
+}
+
+initPeopleStats();
+initBenefitsSlider();
