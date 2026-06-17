@@ -9,6 +9,7 @@ type PageTransitionOptions = {
   reduceMotion: boolean;
   onBeforeLeave?: (path: RoutePath) => void;
   onBeforeEnter?: (path: RoutePath, container: HTMLElement) => void;
+  onBeforeNavigate?: (path: RoutePath, currentPath: RoutePath) => void;
   onRouteChange?: (path: RoutePath) => void;
 };
 
@@ -171,6 +172,7 @@ export function initPageTransition({
   reduceMotion,
   onBeforeLeave,
   onBeforeEnter,
+  onBeforeNavigate,
   onRouteChange
 }: PageTransitionOptions) {
   const initialContainer = optional<HTMLElement>('[data-barba="container"]');
@@ -373,6 +375,7 @@ export function initPageTransition({
       return;
     }
 
+    onBeforeNavigate?.(path, currentPath);
     void barba.go(routeUrl(path));
   }
 

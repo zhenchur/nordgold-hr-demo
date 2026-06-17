@@ -76,6 +76,7 @@ let innerNav: ReturnType<typeof initInnerNavReveal> | undefined;
 let blockMotion: ReturnType<typeof initBlockMotion> | null = null;
 let heroShutter: ReturnType<typeof createHeroShutter> | null = null;
 let pixelation: ReturnType<typeof initPixelation> | null = null;
+let shouldPinInnerNavAfterTransition = false;
 
 const getRouteRoot = (path: "/" | "/page2"): ParentNode => {
   return qsa<HTMLElement>('[data-barba="container"]').find((container) => container.dataset.routePage === path) ?? document;
@@ -91,6 +92,18 @@ const disposeRouteSystems = () => {
   blockMotion = null;
   heroShutter = null;
   pixelation = null;
+};
+
+const isInnerNavVisible = () => {
+  const nav = document.querySelector<HTMLElement>(".inner-nav");
+
+  if (!nav) {
+    return false;
+  }
+
+  const style = window.getComputedStyle(nav);
+
+  return style.visibility !== "hidden" && style.pointerEvents !== "none" && Number.parseFloat(style.opacity) > 0.5;
 };
 
 const mountRouteSystems = (path: "/" | "/page2") => {
@@ -114,6 +127,8 @@ const mountRouteSystems = (path: "/" | "/page2") => {
 
   reveal = initRevealSystem({ cleanup: routeCleanup, deferViewportPlay: true, reduceMotion, root: routeRoot });
   innerNav = initInnerNavReveal({ cleanup: routeCleanup, reduceMotion, root: routeRoot });
+  innerNav?.setPinnedVisible(shouldPinInnerNavAfterTransition);
+  shouldPinInnerNavAfterTransition = false;
   blockMotion = initBlockMotion({ cleanup: routeCleanup, reduceMotion, root: routeRoot });
   const mountedHeroShutter = createHeroShutter({
     cleanup: routeCleanup,
@@ -185,6 +200,9 @@ const pageTransition = initPageTransition({
   },
   onBeforeEnter: () => {
     smoothCorners.refresh();
+  },
+  onBeforeNavigate: () => {
+    shouldPinInnerNavAfterTransition = isInnerNavVisible();
   },
   onRouteChange: (path) => {
     mountRouteSystems(path);
