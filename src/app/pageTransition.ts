@@ -218,6 +218,40 @@ export function initPageTransition({
     onRouteChange?.(path);
   }
 
+  function keepInnerNavInLeavingPage(current: HTMLElement) {
+    const innerNav = optional<HTMLElement>(".inner-nav", current);
+
+    if (!innerNav) {
+      return;
+    }
+
+    const style = window.getComputedStyle(innerNav);
+    const rect = innerNav.getBoundingClientRect();
+    const isVisible =
+      style.visibility !== "hidden" && Number.parseFloat(style.opacity) > 0.5 && rect.width > 0 && rect.height > 0;
+
+    if (!isVisible) {
+      return;
+    }
+
+    const pageRect = current.getBoundingClientRect();
+
+    gsap.killTweensOf(innerNav);
+    gsap.set(innerNav, {
+      autoAlpha: 1,
+      bottom: "auto",
+      height: rect.height,
+      left: rect.left - pageRect.left,
+      pointerEvents: "none",
+      position: "absolute",
+      right: "auto",
+      top: rect.top - pageRect.top,
+      width: rect.width,
+      x: 0,
+      y: 0
+    });
+  }
+
   function runPageLeaveAnimation(current: HTMLElement, onLeaveComplete?: () => void) {
     const timeline = gsap.timeline({
       defaults: {
@@ -237,6 +271,7 @@ export function initPageTransition({
     const duration = Math.max(0.05, settings.duration);
 
     document.documentElement.classList.add("rk-is-transitioning");
+    keepInnerNavInLeavingPage(current);
 
     timeline.set(current, { position: "relative", zIndex: 1, pointerEvents: "none", willChange: "transform" }, 0);
     timeline.set(layer, { position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 2 }, 0);
