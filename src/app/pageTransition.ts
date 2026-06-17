@@ -1,6 +1,6 @@
 import barba from "@barba/core";
 import type { CleanupRegistry } from "./dom";
-import { optional } from "./dom";
+import { optional, qsa } from "./dom";
 import { gsap, ScrollTrigger } from "./gsapSetup";
 import { renderPage2Container } from "./page2Page";
 
@@ -41,7 +41,7 @@ function basePath() {
 
 function routeUrl(path: RoutePath) {
   const base = basePath();
-  return path === "/" ? `${base || "/"}` : `${base}/page2/`;
+  return path === "/" ? (base ? `${base}/` : "/") : `${base}/page2/`;
 }
 
 function normalizePath(path: string): RoutePath {
@@ -73,6 +73,7 @@ function shapeHomeContainer(container: HTMLElement) {
   container.classList.remove("route-page2");
   container.dataset.routePage = "/";
   container.dataset.barbaNamespace = "home";
+  syncRouteLinks(container);
 }
 
 function shapePage2Container(container: HTMLElement) {
@@ -81,6 +82,7 @@ function shapePage2Container(container: HTMLElement) {
   container.dataset.routePage = "/page2";
   container.dataset.barbaNamespace = "page2";
   renderPage2Container(container);
+  syncRouteLinks(container);
 }
 
 function shapeContainerForPath(container: HTMLElement, path: RoutePath) {
@@ -90,6 +92,13 @@ function shapeContainerForPath(container: HTMLElement, path: RoutePath) {
   }
 
   shapeHomeContainer(container);
+}
+
+function syncRouteLinks(root: ParentNode) {
+  qsa<HTMLAnchorElement>(".brand, .inner-brand, [data-route-home]", root).forEach((link) => {
+    link.href = routeUrl("/");
+    link.dataset.routeHome = "";
+  });
 }
 
 function ensureTransitionLayer() {

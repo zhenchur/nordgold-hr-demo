@@ -2608,10 +2608,6 @@ body:has(#layoutGridToggle:checked) .layout-grid-overlay {
   background: var(--yellow);
 }
 
-.success-tab-all > span {
-  white-space: nowrap;
-}
-
 .success-tab span,
 .success-tab small {
   display: block;
@@ -2621,6 +2617,10 @@ body:has(#layoutGridToggle:checked) .layout-grid-overlay {
   font-size: 16px;
   font-weight: 400;
   line-height: 1;
+}
+
+.success-tab > span {
+  white-space: nowrap;
 }
 
 .success-tab small {
