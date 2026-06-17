@@ -160,6 +160,9 @@ export function initMinesMap({ cleanup, reduceMotion }: InitMinesMapOptions) {
   let activeIndex = initialMineIndex;
   let activeTimeline: gsap.core.Timeline | undefined;
   let activePointReveal: gsap.core.Tween | undefined;
+  let hoveredPoint: HTMLElement | undefined;
+  let hoverPointReveal: gsap.core.Tween | undefined;
+  let hoverLabelReveal: gsap.core.Tween | undefined;
   let activeGhosts: HTMLElement[] = [];
   let activeTargets: HTMLElement[] = [];
 
@@ -167,6 +170,55 @@ export function initMinesMap({ cleanup, reduceMotion }: InitMinesMapOptions) {
     items.forEach((point) => {
       pointRevealProperties.forEach((property) => point.style.removeProperty(property));
     });
+  };
+
+  const pointRevealFrom = {
+    "--mines-point-ring-scale": 0,
+    "--mines-point-ring-alpha": 0,
+    "--mines-point-mark-scale": 0,
+    "--mines-point-mark-alpha": 0
+  };
+
+  const pointRevealTo = {
+    "--mines-point-ring-scale": 1,
+    "--mines-point-ring-alpha": 1,
+    "--mines-point-mark-scale": 1,
+    "--mines-point-mark-alpha": 1
+  };
+
+  const getPointIndex = (point: HTMLElement) => {
+    const index = Number(point.dataset.minesPoint);
+
+    return Number.isInteger(index) && index >= 0 && index < mineLocations.length ? index : null;
+  };
+
+  const getPointLabel = (point: HTMLElement) => {
+    const existing = point.querySelector<HTMLElement>(".mines-map-point-label");
+
+    if (existing) {
+      return existing;
+    }
+
+    const index = getPointIndex(point);
+    const label = document.createElement("span");
+    label.className = "mines-map-point-label";
+    label.textContent = index === null ? "" : mineLocations[index].title;
+    point.append(label);
+
+    return label;
+  };
+
+  const setupPoint = (point: HTMLElement) => {
+    const index = getPointIndex(point);
+
+    if (index === null) {
+      return;
+    }
+
+    point.setAttribute("role", "button");
+    point.setAttribute("tabindex", "0");
+    point.setAttribute("aria-label", mineLocations[index].title);
+    getPointLabel(point);
   };
 
   const revealActivePoint = (point: HTMLElement | undefined, animated: boolean) => {
@@ -182,17 +234,9 @@ export function initMinesMap({ cleanup, reduceMotion }: InitMinesMapOptions) {
 
     activePointReveal = gsap.fromTo(
       point,
+      pointRevealFrom,
       {
-        "--mines-point-ring-scale": 0,
-        "--mines-point-ring-alpha": 0,
-        "--mines-point-mark-scale": 0,
-        "--mines-point-mark-alpha": 0
-      },
-      {
-        "--mines-point-ring-scale": 1,
-        "--mines-point-ring-alpha": 1,
-        "--mines-point-mark-scale": 1,
-        "--mines-point-mark-alpha": 1,
+        ...pointRevealTo,
         duration: motion.duration,
         ease: motion.ease,
         overwrite: true,
@@ -202,6 +246,100 @@ export function initMinesMap({ cleanup, reduceMotion }: InitMinesMapOptions) {
         }
       }
     );
+  };
+
+  const showPointHover = (point: HTMLElement) => {
+    const label = getPointLabel(point);
+
+    hoveredPoint = point;
+    point.classList.add("is-hovered");
+    hoverPointReveal?.kill();
+    hoverLabelReveal?.kill();
+
+    if (reduceMotion) {
+      gsap.set(label, { autoAlpha: 1, y: 0 });
+      return;
+    }
+
+    const motion = readPointRevealMotion();
+
+    if (!point.classList.contains("is-active")) {
+      hoverPointReveal = gsap.fromTo(
+        point,
+        pointRevealFrom,
+        {
+          ...pointRevealTo,
+          duration: motion.duration,
+          ease: motion.ease,
+          overwrite: true,
+          onComplete: () => {
+            clearPointRevealVars([point]);
+            hoverPointReveal = undefined;
+          }
+        }
+      );
+    }
+
+    hoverLabelReveal = gsap.fromTo(
+      label,
+      { autoAlpha: 0, y: 6 },
+      {
+        autoAlpha: 1,
+        duration: motion.duration,
+        ease: motion.ease,
+        overwrite: true,
+        y: 0
+      }
+    );
+  };
+
+  const hidePointHover = (point: HTMLElement) => {
+    if (hoveredPoint === point) {
+      hoveredPoint = undefined;
+    }
+
+    const label = getPointLabel(point);
+    const motion = readPointRevealMotion();
+    const isActive = point.classList.contains("is-active");
+
+    hoverPointReveal?.kill();
+    hoverLabelReveal?.kill();
+
+    point.classList.remove("is-hovered");
+
+    if (reduceMotion) {
+      if (!isActive) {
+        clearPointRevealVars([point]);
+      }
+      gsap.set(label, { autoAlpha: 0, y: 0 });
+      return;
+    }
+
+    if (!isActive) {
+      point.classList.add("is-hovered");
+      hoverPointReveal = gsap.to(point, {
+        "--mines-point-ring-scale": 0,
+        "--mines-point-ring-alpha": 0,
+        "--mines-point-mark-scale": 0,
+        "--mines-point-mark-alpha": 0,
+        duration: motion.duration,
+        ease: motion.ease,
+        overwrite: true,
+        onComplete: () => {
+          point.classList.remove("is-hovered");
+          clearPointRevealVars([point]);
+          hoverPointReveal = undefined;
+        }
+      });
+    }
+
+    hoverLabelReveal = gsap.to(label, {
+      autoAlpha: 0,
+      duration: motion.duration,
+      ease: motion.ease,
+      overwrite: true,
+      y: 6
+    });
   };
 
   const cleanupTextMotionArtifacts = () => {
@@ -226,7 +364,12 @@ export function initMinesMap({ cleanup, reduceMotion }: InitMinesMapOptions) {
 
   const disposePointMotion = () => {
     activePointReveal?.kill();
+    hoverPointReveal?.kill();
+    hoverLabelReveal?.kill();
     activePointReveal = undefined;
+    hoverPointReveal = undefined;
+    hoverLabelReveal = undefined;
+    hoveredPoint = undefined;
     clearPointRevealVars();
   };
 
@@ -346,6 +489,12 @@ export function initMinesMap({ cleanup, reduceMotion }: InitMinesMapOptions) {
         activePoint = point;
       }
     });
+
+    if (hoveredPoint === activePoint) {
+      hoverPointReveal?.kill();
+      hoverPointReveal = undefined;
+    }
+
     revealActivePoint(activePoint, animated);
 
     const mapPoint = mapPointCenters[activeIndex];
@@ -373,6 +522,35 @@ export function initMinesMap({ cleanup, reduceMotion }: InitMinesMapOptions) {
 
   cleanup.on(prev, "click", () => setActiveMine(activeIndex - 1));
   cleanup.on(next, "click", () => setActiveMine(activeIndex + 1));
+
+  points.forEach((point) => {
+    setupPoint(point);
+    cleanup.on(point, "mouseenter", () => showPointHover(point));
+    cleanup.on(point, "mouseleave", () => hidePointHover(point));
+    cleanup.on(point, "focus", () => showPointHover(point));
+    cleanup.on(point, "blur", () => hidePointHover(point));
+    cleanup.on(point, "click", () => {
+      const index = getPointIndex(point);
+
+      if (index !== null) {
+        setActiveMine(index);
+      }
+    });
+    cleanup.on(point, "keydown", (event) => {
+      if (!(event instanceof KeyboardEvent) || (event.key !== "Enter" && event.key !== " ")) {
+        return;
+      }
+
+      const index = getPointIndex(point);
+
+      if (index === null) {
+        return;
+      }
+
+      event.preventDefault();
+      setActiveMine(index);
+    });
+  });
 
   cleanup.add(() => {
     disposeTextMotion();

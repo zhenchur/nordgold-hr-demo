@@ -81,6 +81,15 @@ body {
   min-width: 1280px;
   margin: 0;
   background: var(--white);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 body {
@@ -3060,6 +3069,8 @@ body:has(#layoutGridToggle:checked) .layout-grid-overlay {
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--black);
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .mines-map-point::before,
@@ -3094,12 +3105,33 @@ body:has(#layoutGridToggle:checked) .layout-grid-overlay {
 }
 
 .mines-map-point.is-active::before,
-.mines-map-point.is-active::after {
+.mines-map-point.is-active::after,
+.mines-map-point.is-hovered::before,
+.mines-map-point.is-hovered::after {
   display: block;
 }
 
-.mines-map-point.is-active::after {
+.mines-map-point.is-active::after,
+.mines-map-point.is-hovered::after {
   animation: mines-map-active-point-spin 6s linear infinite;
+}
+
+.mines-map-point-label {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: calc(100% + 1.4831cqw);
+  color: var(--black);
+  font-family: var(--font-bbook);
+  font-size: 1.6949cqw;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, -50%, 0);
+  will-change: transform, opacity;
 }
 
 @keyframes mines-map-active-point-spin {
