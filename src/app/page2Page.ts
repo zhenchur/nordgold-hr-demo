@@ -2,6 +2,7 @@ import chevronIcon from "../assets/ico-chevron.svg";
 import langIcon from "../assets/ico-lang.svg";
 import phoneIcon from "../assets/ico-phone.svg";
 import userIcon from "../assets/ico-user.svg";
+import colorLogo from "../assets/logo-color.svg";
 import logo from "../assets/logo.svg";
 import mineHeroImage from "../assets/mine-berezitovy-hero.png";
 import statMethodIcon from "../assets/mine-stat-method.svg";
@@ -230,7 +231,7 @@ export function renderPage2Container(container: HTMLElement) {
         data-pixelate-kind="logo"
         data-pixel-size="8"
       >
-        <img src="${logo}" alt="" />
+        <img src="${colorLogo}" alt="" />
       </a>
 
       <div class="inner-nav-right">
