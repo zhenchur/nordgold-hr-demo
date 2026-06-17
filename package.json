@@ -9,7 +9,7 @@
     "lint": "eslint src vite.config.ts",
     "format": "prettier --write \"src/**/*.{ts,css}\" \"*.{html,md,json,js,ts}\"",
     "format:check": "prettier --check \"src/**/*.{ts,css}\" \"*.{html,md,json,js,ts}\"",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && node scripts/prepare-github-pages.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
