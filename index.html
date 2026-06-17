@@ -1,19 +1,74 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="is-booting">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nordgold HR</title>
+    <title>HR Demo</title>
+    <style>
+      html.is-booting {
+        background: #ffffff;
+      }
+
+      html.is-booting body {
+        visibility: hidden;
+      }
+    </style>
+    <noscript>
+      <style>
+        html.is-booting body {
+          visibility: visible;
+        }
+      </style>
+    </noscript>
   </head>
-  <body>
-    <div id="smooth">
-      <main id="content">
-        <section class="hero" aria-label="Nordgold careers">
-          <div class="scene" aria-hidden="true">
+  <body data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="home" data-route-page="/">
+      <section class="hero" aria-label="Карьера">
+        <div class="hero-stage" data-hero-stage>
+          <div class="scene">
             <div class="media" id="media">
-              <img class="bg" src="/src/assets/hero-bg.png" alt="" />
-              <img class="worker" src="/src/assets/hero-worker.png" alt="" />
+              <div class="hero-visuals" data-hero-visuals aria-hidden="true"></div>
               <div class="veil"></div>
+
+              <div class="hero-copy" data-hero-copy>
+                <h1
+                  class="title"
+                  data-reveal="text"
+                  data-reveal-trigger="manual"
+                  data-reveal-scope="hero"
+                  data-reveal-id="hero-title"
+                >
+                  <span class="line">Стань частью команды</span>
+                  <span class="line">
+                    и успеха
+                    <span
+                      class="brand-text-pixel hero-brand-pixel"
+                      data-pixelate-text="Nordgold"
+                      data-pixelate-kind="text"
+                      data-pixel-size="12"
+                      >Nordgold</span
+                    >
+                  </span>
+                </h1>
+
+                <form
+                  class="search"
+                  data-reveal="element"
+                  data-reveal-trigger="manual"
+                  data-reveal-scope="hero"
+                  data-reveal-sequence="hero-ui"
+                  data-reveal-after="hero-title"
+                >
+                  <label for="q">Найти вакансию</label>
+                  <input id="q" name="q" type="search" aria-label="Найти вакансию" placeholder=" " />
+                  <span class="search-placeholder" data-motion-hover-text-target aria-hidden="true"
+                    >Найти вакансию</span
+                  >
+                  <button type="submit" aria-label="Искать">
+                    <img src="/src/assets/ico-search.svg" alt="" />
+                  </button>
+                </form>
+              </div>
             </div>
             <svg class="mask-svg" id="maskSvg" aria-hidden="true">
               <polygon id="maskSector"></polygon>
@@ -28,128 +83,88 @@
               <circle id="travelDot" r="10" />
             </svg>
           </div>
+        </div>
 
-          <header class="nav">
-            <div class="nav-left">
-              <a class="job-btn" href="#vacancies">
-                <span>Все вакансии</span>
-                <img src="/src/assets/ico-user.svg" alt="" />
-              </a>
-              <nav class="links" aria-label="Основная навигация">
-                <a href="#mines">Рудники</a>
-                <a href="#terms">Условия работы</a>
-                <a href="#about">О нас</a>
-                <a href="#contacts">Контакты</a>
-              </nav>
-            </div>
-
-            <a class="brand" href="/" aria-label="Nordgold">
-              <img src="/src/assets/logo.png" alt="Nordgold" />
-            </a>
-
-            <div class="nav-right">
-              <div class="career">
-                <span>Начало карьеры</span>
-                <a href="#fast-track">Fast track</a>
-                <a href="#sprint">Sprint</a>
-              </div>
-              <a class="phone" href="tel:88007005555">
-                <img src="/src/assets/ico-phone.svg" alt="" />
-                <span>8 800 700 55 55</span>
-              </a>
-              <button class="lang" type="button" aria-label="Сменить язык">
-                <img src="/src/assets/ico-lang.svg" alt="" />
-              </button>
-            </div>
-          </header>
-
-          <h1 class="title">
-            <span class="line">Стань частью команды</span>
-            <span class="line">и успеха Nordgold</span>
-          </h1>
-
-          <form class="search" action="#vacancies">
-            <label for="q">Найти вакансию</label>
-            <input id="q" name="q" type="search" aria-label="Найти вакансию" />
-            <button type="submit" aria-label="Искать">
-              <img src="/src/assets/ico-search.svg" alt="" />
-            </button>
-          </form>
-
-          <div class="vac" id="vacancies">
-            <a class="tab" href="#shift">
-              <span>Вахта</span>
-              <small>(12)</small>
-            </a>
-            <a class="tab" href="#internship">
-              <span>Стажировка</span>
-              <small>(4)</small>
-            </a>
-            <a class="tab" href="#office">
-              <span>Офис</span>
-              <small>(9)</small>
-            </a>
-            <a class="tab" href="#women">
-              <span>Женщинам</span>
-              <small>(6)</small>
-            </a>
-            <a class="tab tab-hot" href="#all">
-              <span>Все вакансии</span>
-              <small>(28)</small>
-            </a>
-          </div>
-          <span class="bar" aria-hidden="true"></span>
-          <div class="lock" aria-hidden="true"></div>
-
-          <details class="debug" id="debug">
-            <summary>Debug</summary>
-            <form class="debug-form" id="debugForm">
-              <label>Center X <output id="centerXOut">6.7%</output><input id="centerX" type="range" min="0" max="100" step="0.5" value="6.7" /></label>
-              <label>Center Y <output id="centerYOut">82%</output><input id="centerY" type="range" min="0" max="100" step="0.5" value="82" /></label>
-              <label>Upper <output id="upperOut">123deg</output><input id="upperOpen" type="range" min="0" max="180" step="1" value="123" /></label>
-              <label>Lower <output id="lowerOut">37deg</output><input id="lowerOpen" type="range" min="0" max="180" step="1" value="37" /></label>
-              <label>Axis <output id="axisOut">-47deg</output><input id="axisDeg" type="range" min="-180" max="180" step="1" value="-47" /></label>
-              <label>Travel <output id="travelOut">26%</output><input id="travelFrom" type="range" min="0" max="70" step="0.5" value="26" /></label>
-              <label>Y offset <output id="yOut">+28%</output><input id="yOffset" type="range" min="-160" max="160" step="0.5" value="28" /></label>
-              <label>Duration <output id="durationOut">1.25s</output><input id="duration" type="range" min="0.2" max="3" step="0.01" value="1.25" /></label>
-              <label>Ease
-                <select id="ease">
-                  <option value="none">none</option>
-                  <option value="power2.out">power2.out</option>
-                  <option value="power3.out">power3.out</option>
-                  <option value="power4.out">power4.out</option>
-                  <option value="power2.inOut">power2.inOut</option>
-                  <option value="power3.inOut">power3.inOut</option>
-                  <option value="expo.inOut" selected>expo.inOut</option>
-                </select>
-              </label>
-              <div class="debug-actions">
-                <button id="playMask" type="button">Play</button>
-                <button id="resetMask" type="button">Reset</button>
-                <button id="finalMask" type="button">Final</button>
-                <label class="check"><input id="showGuide" type="checkbox" /> Guides</label>
-              </div>
-            </form>
-          </details>
-        </section>
-
-        <header class="inner-nav" aria-label="Навигация после первого экрана">
-          <div class="inner-nav-left">
-            <a class="inner-job-btn" href="#vacancies">
+        <header class="nav">
+          <div
+            class="nav-left"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+          >
+            <button class="job-btn" type="button">
               <span>Все вакансии</span>
               <img src="/src/assets/ico-user.svg" alt="" />
+            </button>
+            <nav class="links" aria-label="Основная навигация">
+              <button type="button"><span>Рудники</span></button>
+              <button type="button"><span>Условия работы</span></button>
+              <button type="button"><span>О нас</span></button>
+              <button type="button"><span>Контакты</span></button>
+            </nav>
+          </div>
+
+          <a
+            class="brand"
+            href="/"
+            aria-label="Компания"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+            data-pixelate-image
+            data-pixelate-kind="logo"
+            data-pixel-size="8"
+          >
+            <img src="/src/assets/logo.svg" alt="" />
+          </a>
+
+          <div
+            class="nav-right"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+          >
+            <div class="career">
+              <span>Начало карьеры</span>
+              <button type="button"><span>Fast track</span></button>
+              <button type="button"><span>Sprint</span></button>
+            </div>
+            <a class="phone" href="tel:88007005555">
+              <img src="/src/assets/ico-phone.svg" alt="" />
+              <span>8 800 700 55 55</span>
             </a>
+            <button class="lang" type="button" aria-label="Сменить язык">
+              <img src="/src/assets/ico-lang.svg" alt="" />
+            </button>
+          </div>
+
+          <div
+            class="nav-compact-left"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+          >
+            <button class="inner-job-btn" type="button">
+              <span>Все вакансии</span>
+              <img src="/src/assets/ico-user.svg" alt="" />
+            </button>
             <button class="inner-menu" type="button">
               <span>Меню</span>
               <span class="dots" aria-hidden="true"></span>
             </button>
           </div>
 
-          <a class="inner-brand" href="/" aria-label="Nordgold">
-            <img src="/src/assets/logo.png" alt="Nordgold" />
-          </a>
-
-          <div class="inner-nav-right">
+          <div
+            class="nav-compact-right"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+          >
             <button class="inner-career" type="button">
               <span>Начало карьеры</span>
               <span class="dots" aria-hidden="true"></span>
@@ -163,88 +178,830 @@
           </div>
         </header>
 
-        <section class="benefits" aria-label="Почему выбирают Nordgold">
-          <p class="section-kicker">Наши преимущества</p>
+        <div class="vac" id="vacancies">
+          <button
+            class="tab is-active"
+            type="button"
+            data-vacancy-tab="0"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Вахта</span>
+            <small>(12)</small>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            data-vacancy-tab="1"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Стажировка</span>
+            <small>(4)</small>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            data-vacancy-tab="2"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Офис</span>
+            <small>(9)</small>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            data-vacancy-tab="3"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Женщинам</span>
+            <small>(6)</small>
+          </button>
+          <button
+            class="tab tab-hot"
+            type="button"
+            data-vacancy-cta="all"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Все вакансии</span>
+            <small>(28)</small>
+          </button>
+          <span
+            class="bar"
+            data-vacancy-bar
+            data-reveal="element"
+            data-reveal-effect="fade"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+            aria-hidden="true"
+          ></span>
+        </div>
+        <div class="lock" aria-hidden="true"></div>
+
+      </section>
+
+      <header class="inner-nav" aria-label="Навигация после первого экрана">
+        <div class="inner-nav-left">
+          <button class="inner-job-btn" type="button">
+            <span>Все вакансии</span>
+            <img src="/src/assets/ico-user.svg" alt="" />
+          </button>
+          <button class="inner-menu" type="button">
+            <span>Меню</span>
+            <span class="dots" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <a class="inner-brand" href="/" aria-label="Компания" data-pixelate-image data-pixelate-kind="logo" data-pixel-size="8">
+          <img src="/src/assets/logo.svg" alt="" />
+        </a>
+
+        <div class="inner-nav-right">
+          <button class="inner-career" type="button">
+            <span>Начало карьеры</span>
+            <span class="dots" aria-hidden="true"></span>
+          </button>
+          <a class="inner-icon-btn" href="tel:88007005555" aria-label="Позвонить">
+            <img src="/src/assets/ico-phone.svg" alt="" />
+          </a>
+          <button class="inner-icon-btn" type="button" aria-label="Сменить язык">
+            <img src="/src/assets/ico-lang.svg" alt="" />
+          </button>
+        </div>
+      </header>
+
+      <section class="benefits" aria-label="Почему выбирают компанию">
+        <div class="benefits-stage">
+          <p class="section-kicker" data-reveal="text" data-reveal-trigger="viewport">Наши преимущества</p>
 
           <div class="benefits-heading">
-            <h2>Почему выбирают<br />Nordgold</h2>
-            <div class="benefits-controls" aria-label="Управление преимуществами">
-              <button class="benefits-arrow" type="button" data-benefits-prev aria-label="Предыдущее преимущество"></button>
-              <button class="benefits-arrow" type="button" data-benefits-next aria-label="Следующее преимущество"></button>
+            <h2 data-reveal="text" data-reveal-trigger="viewport">
+              Почему выбирают<br /><span
+                class="brand-text-pixel"
+                data-pixelate-text="Nordgold"
+                data-pixelate-kind="text"
+                data-pixel-size="12"
+                >Nordgold</span
+              >
+            </h2>
+            <div
+              class="benefits-controls"
+              data-reveal="group"
+              data-reveal-trigger="viewport"
+              aria-label="Управление преимуществами"
+            >
+              <button
+                class="benefits-arrow"
+                type="button"
+                data-benefits-prev
+                data-reveal-item
+                aria-label="Предыдущее преимущество"
+              ></button>
+              <button
+                class="benefits-arrow"
+                type="button"
+                data-benefits-next
+                data-reveal-item
+                aria-label="Следующее преимущество"
+              ></button>
             </div>
           </div>
 
           <div class="benefits-grid">
-            <aside class="people-panel" aria-label="Nordgold в цифрах">
-              <div class="people-panel-top">
-                <p>Сотрудники компании</p>
-                <div class="people-avatars" aria-hidden="true">
-                  <img src="/src/assets/benefits-avatar-1.png" alt="" />
-                  <img src="/src/assets/benefits-avatar-2.png" alt="" />
+            <aside class="people-panel" aria-label="Компания в цифрах">
+              <div class="people-number-slot" aria-live="polite">
+                <div class="people-number" data-people-number-group>
+                  <span data-people-number>7800</span>
+                  <small data-people-unit>+</small>
                 </div>
               </div>
 
-              <div class="people-number" aria-live="polite">
-                <span data-people-number>7800</span>
-                <small>+</small>
-              </div>
-
-              <div class="people-dots" aria-label="Пагинация показателей">
-                <button class="people-dot is-active" type="button" data-people-dot="0" aria-label="Показатель 1"></button>
-                <button class="people-dot" type="button" data-people-dot="1" aria-label="Показатель 2"></button>
-                <button class="people-dot" type="button" data-people-dot="2" aria-label="Показатель 3"></button>
+              <div class="people-stat-meta">
+                <span class="people-stat-line" aria-hidden="true"></span>
+                <div class="people-stat-row">
+                  <p class="people-stat-caption" data-people-caption>Сотрудников в компании</p>
+                  <img class="people-stat-icon" data-people-icon src="/src/assets/stat-icon-people.svg" alt="" />
+                </div>
               </div>
             </aside>
 
             <div class="benefits-slider" aria-label="Список преимуществ">
               <div class="benefits-track" data-benefits-track>
-                <article class="benefit-card">
-                  <h3>Стабильность</h3>
+                <article class="benefit-card" data-reveal-card>
+                  <h3 data-reveal="text" data-reveal-trigger="viewport">Стабильность</h3>
                   <div class="benefit-card-bottom">
                     <img src="/src/assets/benefit-icon-stability.svg" alt="" />
-                    <p>Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных процессов, что обеспечивает финансовую стабильность</p>
+                    <p>
+                      Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных
+                      процессов, что обеспечивает финансовую стабильность
+                    </p>
                   </div>
                 </article>
-                <article class="benefit-card">
-                  <h3>Платим больше</h3>
+                <article class="benefit-card" data-reveal-card>
+                  <h3 data-reveal="text" data-reveal-trigger="viewport">Платим больше</h3>
                   <div class="benefit-card-bottom">
                     <img src="/src/assets/benefit-icon-pay.svg" alt="" />
-                    <p>Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных процессов, что обеспечивает финансовую стабильность</p>
+                    <p>
+                      Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных
+                      процессов, что обеспечивает финансовую стабильность
+                    </p>
                   </div>
                 </article>
-                <article class="benefit-card">
-                  <h3>Надежная компания</h3>
+                <article class="benefit-card" data-reveal-card>
+                  <h3 data-reveal="text" data-reveal-trigger="viewport">Надежная компания</h3>
                   <div class="benefit-card-bottom">
                     <img src="/src/assets/benefit-icon-company.svg" alt="" />
-                    <p>Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных процессов, что обеспечивает финансовую стабильность</p>
-                  </div>
-                </article>
-                <article class="benefit-card">
-                  <h3>Стабильность</h3>
-                  <div class="benefit-card-bottom">
-                    <img src="/src/assets/benefit-icon-stability.svg" alt="" />
-                    <p>Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных процессов, что обеспечивает финансовую стабильность</p>
-                  </div>
-                </article>
-                <article class="benefit-card">
-                  <h3>Платим больше</h3>
-                  <div class="benefit-card-bottom">
-                    <img src="/src/assets/benefit-icon-pay.svg" alt="" />
-                    <p>Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных процессов, что обеспечивает финансовую стабильность</p>
-                  </div>
-                </article>
-                <article class="benefit-card">
-                  <h3>Надежная компания</h3>
-                  <div class="benefit-card-bottom">
-                    <img src="/src/assets/benefit-icon-company.svg" alt="" />
-                    <p>Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных процессов, что обеспечивает финансовую стабильность</p>
+                    <p>
+                      Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных
+                      процессов, что обеспечивает финансовую стабильность
+                    </p>
                   </div>
                 </article>
               </div>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      <section class="success-section" aria-label="Достигайте успехов вместе с нами">
+        <div class="success-stage">
+          <div class="success-head">
+            <p class="success-kicker" data-reveal="text" data-reveal-trigger="viewport">Направления</p>
+            <h2 data-reveal="text" data-reveal-trigger="viewport">Достигайте успехов<br />вместе с нами</h2>
+          </div>
+
+          <article class="success-slider" data-block-motion aria-label="Направления карьеры">
+            <img class="success-bg success-bg-base success-bg-visual" src="/src/assets/success-slide-leaders.png" alt="" />
+            <div class="success-shade" aria-hidden="true"></div>
+            <span class="success-star-frame" data-pixelate-image data-pixelate-kind="mark" data-pixel-size="8" aria-hidden="true">
+              <img class="success-star" src="/src/assets/success-star.svg" alt="" />
+            </span>
+
+            <div class="success-copy">
+              <div class="success-copy-head">
+                <img src="/src/assets/success-strategy-icon.svg" alt="" />
+                <h3>Ответственность<br />достойная стратегов</h3>
+              </div>
+              <p>
+                Станьте частью команды, где решения превращаются в результат. Ведите людей, развивайте процессы и
+                влияйте на стратегию
+                <span class="brand-text-pixel" data-pixelate-text="Nordgold" data-pixelate-kind="text" data-pixel-size="12"
+                  >Nordgold</span
+                >.
+              </p>
+            </div>
+
+            <span class="success-divider" aria-hidden="true"></span>
+
+            <div class="success-panel">
+              <div
+                class="success-controls"
+                data-reveal="group"
+                data-reveal-trigger="viewport"
+                aria-label="Управление направлениями"
+              >
+                <button
+                  class="success-arrow"
+                  type="button"
+                  data-success-prev
+                  data-reveal-item
+                  aria-label="Предыдущее направление"
+                ></button>
+                <button
+                  class="success-arrow"
+                  type="button"
+                  data-success-next
+                  data-reveal-item
+                  aria-label="Следующее направление"
+                ></button>
+              </div>
+
+              <div
+                class="success-tabs"
+                data-reveal="group"
+                data-reveal-trigger="viewport"
+                aria-label="Категории вакансий"
+              >
+                <a class="success-tab is-active" href="#vacancies" data-reveal-item>
+                  <span>Руководителям</span>
+                  <small>(6)</small>
+                </a>
+                <a class="success-tab" href="#vacancies" data-reveal-item>
+                  <span>Рабочие специальности</span>
+                  <small>(4)</small>
+                </a>
+                <a class="success-tab" href="#vacancies" data-reveal-item>
+                  <span>Студентам</span>
+                  <small>(12)</small>
+                </a>
+                <a class="success-tab success-tab-all" href="#vacancies" data-reveal-item>
+                  <span>Все вакансии</span>
+                  <small>(28)</small>
+                </a>
+              </div>
+
+              <div class="success-tab-line" aria-hidden="true">
+                <span></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mines-section" aria-label="Локации рудников">
+        <img class="mines-bg" src="/src/assets/mines-bg.png" alt="" />
+        <div class="mines-shade" aria-hidden="true"></div>
+
+        <p class="mines-kicker" data-reveal="text" data-reveal-trigger="viewport">Наши рудники</p>
+        <h2 class="mines-title" data-reveal="text" data-reveal-trigger="viewport">
+          Предлагаем работу<br />на 9 рудниках
+        </h2>
+
+        <article class="mines-card" data-block-motion aria-label="Карта рудников">
+          <div class="mines-summary" aria-live="polite">
+            <p data-mines-region>Амурская область</p>
+            <h3 data-mines-title>Березитовый</h3>
+          </div>
+
+          <div class="mines-country-tabs" aria-label="Страны">
+            <button class="mines-country is-active" type="button"><span>Россия</span></button>
+            <button class="mines-country" type="button"><span>Казахстан</span></button>
+            <button class="mines-country" type="button"><span>Буркина-Фасо</span></button>
+            <button class="mines-country" type="button"><span>Гвинея</span></button>
+          </div>
+
+          <div class="mines-stats" aria-label="Характеристики рудника">
+            <div class="mines-stat">
+              <span class="mines-stat-label">Местоположение</span>
+              <span class="mines-stat-value">
+                <img src="/src/assets/mines-icon-location.svg" alt="" />
+                <strong data-mines-location>Россия, Забайкалье</strong>
+              </span>
+            </div>
+            <span class="mines-stat-line" aria-hidden="true"></span>
+            <div class="mines-stat">
+              <span class="mines-stat-label">Способ добычи</span>
+              <span class="mines-stat-value">
+                <img src="/src/assets/mines-icon-gold.svg" alt="" />
+                <strong data-mines-method>Открытая добыча</strong>
+              </span>
+            </div>
+            <span class="mines-stat-line" aria-hidden="true"></span>
+            <div class="mines-stat">
+              <span class="mines-stat-label">Год запуска</span>
+              <span class="mines-stat-value">
+                <img src="/src/assets/mines-icon-calendar.svg" alt="" />
+                <strong data-mines-year>2010</strong>
+              </span>
+            </div>
+            <span class="mines-stat-line" aria-hidden="true"></span>
+          </div>
+
+          <span class="mines-divider" aria-hidden="true"></span>
+
+          <div class="mines-map" aria-hidden="true">
+            <div class="mines-map-layer">
+              <img class="mines-map-shape" src="/src/assets/mines-map-russia.svg" alt="" />
+              <div class="mines-map-ranges">
+                <span class="mines-map-range mines-map-range-near"></span>
+                <span class="mines-map-range mines-map-range-far"></span>
+                <span class="mines-map-range-label mines-map-range-label-coordinates">66° 25′&nbsp; 94° 15′</span>
+                <span class="mines-map-range-label mines-map-range-label-near">2 500 км</span>
+                <span class="mines-map-range-label mines-map-range-label-far">5 000 км</span>
+              </div>
+              <svg class="mines-map-connector" viewBox="0 0 944 719" aria-hidden="true">
+                <line data-mines-connector x1="505.29" y1="412.93" x2="616.89" y2="491.18"></line>
+              </svg>
+              <div class="mines-map-markers">
+                <span class="mines-map-star" data-pixelate-image data-pixelate-kind="mark" data-pixel-size="8">
+                  <img src="/src/assets/mines-map-star.svg" alt="" />
+                </span>
+                <span class="mines-map-point mines-map-point-1" data-mines-point="0"></span>
+                <span class="mines-map-point mines-map-point-2" data-mines-point="1"></span>
+                <span class="mines-map-point mines-map-point-3" data-mines-point="2"></span>
+                <span class="mines-map-point mines-map-point-4" data-mines-point="3"></span>
+                <span class="mines-map-point mines-map-point-5 is-active" data-mines-point="4"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mines-point-nav" aria-label="Переключение точек на карте">
+            <button class="mines-arrow mines-arrow-prev" type="button" data-mines-prev aria-label="Предыдущий рудник"></button>
+            <button class="mines-arrow mines-arrow-next" type="button" data-mines-next aria-label="Следующий рудник"></button>
+          </div>
+
+          <a class="mines-vacancy" href="#vacancies" data-reveal="element" data-reveal-trigger="viewport">
+            <span class="mines-vacancy-head">
+              <span class="mines-vacancy-label">Доступные вакансии</span>
+              <span class="mines-vacancy-icon" aria-hidden="true"></span>
+            </span>
+            <small data-mines-vacancies>(9)</small>
+          </a>
+        </article>
+      </section>
+    </main>
+
+    <div class="debug-dock" aria-label="Панели настройки">
+      <input class="debug-dock-toggle-input" id="debugPanelsToggle" type="checkbox" />
+      <label class="debug-dock-toggle" for="debugPanelsToggle">Panels</label>
+      <div class="debug-dock-panels">
+        <div class="layout-debug-panel" aria-label="Панель сетки верстки">
+          <label>
+            <input id="layoutGridToggle" type="checkbox" />
+            <span>Сетка</span>
+          </label>
+        </div>
+
+        <details class="debug" id="debug">
+          <summary>Debug</summary>
+          <form class="debug-form" id="debugForm">
+            <label
+              >Center X <output id="centerXOut">6.5%</output
+              ><input id="centerX" type="range" min="0" max="100" step="0.5" value="6.5"
+            /></label>
+            <label
+              >Center Y <output id="centerYOut">77.0%</output
+              ><input id="centerY" type="range" min="0" max="100" step="0.5" value="77"
+            /></label>
+            <label
+              >Upper <output id="upperOut">110deg</output
+              ><input id="upperOpen" type="range" min="0" max="180" step="1" value="110"
+            /></label>
+            <label
+              >Lower <output id="lowerOut">15deg</output
+              ><input id="lowerOpen" type="range" min="0" max="180" step="1" value="15"
+            /></label>
+            <label
+              >Axis <output id="axisOut">-19deg</output
+              ><input id="axisDeg" type="range" min="-180" max="180" step="1" value="-19"
+            /></label>
+            <label
+              >Travel <output id="travelOut">50.0%</output
+              ><input id="travelFrom" type="range" min="0" max="70" step="0.5" value="50"
+            /></label>
+            <label
+              >Y offset <output id="yOut">+42.0%</output
+              ><input id="yOffset" type="range" min="-160" max="160" step="0.5" value="42"
+            /></label>
+            <label
+              >Duration <output id="durationOut">1.00s</output
+              ><input id="duration" type="range" min="0.2" max="3" step="0.01" value="1"
+            /></label>
+            <label
+              >Media speed <output id="mediaScrollOut">0.35x</output
+              ><input id="mediaScrollFactor" type="range" min="0" max="1" step="0.01" value="0.35"
+            /></label>
+            <label
+              >Ease
+              <select id="ease">
+                <option value="none">none</option>
+                <option value="power2.out">power2.out</option>
+                <option value="power3.out">power3.out</option>
+                <option value="power4.out" selected>power4.out</option>
+                <option value="power2.inOut">power2.inOut</option>
+                <option value="power3.inOut">power3.inOut</option>
+                <option value="expo.inOut">expo.inOut</option>
+              </select>
+            </label>
+            <div class="debug-actions">
+              <button id="playMask" type="button">Play</button>
+              <button id="resetMask" type="button">Reset</button>
+              <button id="finalMask" type="button">Final</button>
+              <label class="check"><input id="showGuide" type="checkbox" /> Guides</label>
+            </div>
+          </form>
+        </details>
+
+        <details class="motion-debug" id="motionDebugPanel" aria-label="Панель текстовой анимации">
+          <summary>Motion</summary>
+          <form id="motionDebugForm" class="motion-debug-form">
+        <label
+          >Split
+          <select id="motionSplitMode">
+            <option value="words">Words</option>
+            <option value="lines" selected>Lines</option>
+          </select>
+        </label>
+        <label
+          >Origin
+          <select id="motionOrigin">
+            <option value="50% 50%">Center</option>
+            <option value="50% 0%" selected>Top</option>
+            <option value="50% 100%">Bottom</option>
+            <option value="0% 50%">Left</option>
+            <option value="100% 50%">Right</option>
+            <option value="0% 0%">Top left</option>
+            <option value="100% 0%">Top right</option>
+            <option value="0% 100%">Bottom left</option>
+            <option value="100% 100%">Bottom right</option>
+          </select>
+        </label>
+        <label
+          >Duration <output id="motionDurationOut">1.00s</output>
+          <input id="motionDuration" type="range" min="0.2" max="4" step="0.01" value="1" />
+        </label>
+        <label
+          >Delay <output id="motionDelayOut">0.00s</output>
+          <input id="motionDelay" type="range" min="0" max="1" step="0.01" value="0" />
+        </label>
+        <label
+          >Stagger <output id="motionStaggerOut">0.030</output>
+          <input id="motionStagger" type="range" min="0" max="0.2" step="0.005" value="0.03" />
+        </label>
+        <label
+          >Perspective <output id="motionPerspectiveOut">600</output>
+          <input id="motionPerspective" type="range" min="600" max="3200" step="50" value="600" />
+        </label>
+        <label
+          >RotateX <output id="motionRotateXOut">-90°</output>
+          <input id="motionRotateX" type="range" min="-180" max="0" step="1" value="-90" />
+        </label>
+        <label
+          >Opacity <output id="motionOpacityOut">0</output>
+          <input id="motionOpacity" type="range" min="0" max="1" step="0.05" value="0" />
+        </label>
+        <label
+          >Y % <output id="motionYPercentOut">120</output>
+          <input id="motionYPercent" type="range" min="-120" max="120" step="1" value="120" />
+        </label>
+        <label class="motion-debug-wide"
+          >Trigger line <output id="motionTriggerLineOut">90%</output>
+          <input id="motionTriggerLine" type="range" min="0" max="100" step="1" value="90" />
+        </label>
+        <label class="motion-debug-check">
+          <input id="motionTriggerGuide" type="checkbox" />
+          <span>Show trigger line</span>
+        </label>
+        <label
+          >Ease
+          <select id="motionEase">
+            <option value="none">none</option>
+            <option value="power1.in">power1.in</option>
+            <option value="power1.out">power1.out</option>
+            <option value="power1.inOut">power1.inOut</option>
+            <option value="power2.in">power2.in</option>
+            <option value="power2.out">power2.out</option>
+            <option value="power2.inOut">power2.inOut</option>
+            <option value="power3.in">power3.in</option>
+            <option value="power3.out">power3.out</option>
+            <option value="power3.inOut">power3.inOut</option>
+            <option value="power4.in">power4.in</option>
+            <option value="power4.out" selected>power4.out</option>
+            <option value="power4.inOut">power4.inOut</option>
+            <option value="sine.in">sine.in</option>
+            <option value="sine.out">sine.out</option>
+            <option value="sine.inOut">sine.inOut</option>
+            <option value="expo.in">expo.in</option>
+            <option value="expo.out">expo.out</option>
+            <option value="expo.inOut">expo.inOut</option>
+            <option value="circ.in">circ.in</option>
+            <option value="circ.out">circ.out</option>
+            <option value="circ.inOut">circ.inOut</option>
+            <option value="back.in">back.in</option>
+            <option value="back.out">back.out</option>
+            <option value="back.inOut">back.inOut</option>
+            <option value="bounce.in">bounce.in</option>
+            <option value="bounce.out">bounce.out</option>
+            <option value="bounce.inOut">bounce.inOut</option>
+            <option value="elastic.in">elastic.in</option>
+            <option value="elastic.out">elastic.out</option>
+            <option value="elastic.inOut">elastic.inOut</option>
+          </select>
+        </label>
+        <div class="motion-debug-actions">
+          <button id="motionApply" type="button">Apply</button>
+          <button id="motionReplay" type="button">Replay</button>
+        </div>
+      </form>
+    </details>
+
+    <details class="motion-debug block-motion-debug" id="blockMotionDebugPanel" aria-label="Панель анимации плашек">
+      <summary>Block motion</summary>
+      <form id="blockMotionDebugForm" class="motion-debug-form">
+        <label
+          >Origin
+          <select id="blockMotionOrigin">
+            <option value="50% 50%">Center</option>
+            <option value="50% 0%" selected>Top</option>
+            <option value="50% 100%">Bottom</option>
+            <option value="0% 50%">Left</option>
+            <option value="100% 50%">Right</option>
+            <option value="0% 0%">Top left</option>
+            <option value="100% 0%">Top right</option>
+            <option value="0% 100%">Bottom left</option>
+            <option value="100% 100%">Bottom right</option>
+          </select>
+        </label>
+        <label
+          >Duration <output id="blockMotionDurationOut">1.00s</output>
+          <input id="blockMotionDuration" type="range" min="0.2" max="4" step="0.01" value="1" />
+        </label>
+        <label
+          >Delay <output id="blockMotionDelayOut">0.00s</output>
+          <input id="blockMotionDelay" type="range" min="0" max="1" step="0.01" value="0" />
+        </label>
+        <label
+          >Perspective <output id="blockMotionPerspectiveOut">600</output>
+          <input id="blockMotionPerspective" type="range" min="600" max="3200" step="50" value="600" />
+        </label>
+        <label
+          >RotateX <output id="blockMotionRotateXOut">-20deg</output>
+          <input id="blockMotionRotateX" type="range" min="-180" max="0" step="1" value="-20" />
+        </label>
+        <label
+          >Opacity <output id="blockMotionOpacityOut">1</output>
+          <input id="blockMotionOpacity" type="range" min="0" max="1" step="0.05" value="1" />
+        </label>
+        <label
+          >Scale <output id="blockMotionScaleOut">0.90</output>
+          <input id="blockMotionScale" type="range" min="0.8" max="1.2" step="0.01" value="0.9" />
+        </label>
+        <label
+          >Y % <output id="blockMotionYPercentOut">15</output>
+          <input id="blockMotionYPercent" type="range" min="-120" max="120" step="1" value="15" />
+        </label>
+        <label class="motion-debug-wide"
+          >Trigger line <output id="blockMotionTriggerLineOut">100%</output>
+          <input id="blockMotionTriggerLine" type="range" min="0" max="100" step="1" value="100" />
+        </label>
+        <label class="motion-debug-check">
+          <input id="blockMotionTriggerGuide" type="checkbox" />
+          <span>Show block trigger line</span>
+        </label>
+        <label class="motion-debug-wide"
+          >Ease
+          <select id="blockMotionEase">
+            <option value="none">none</option>
+            <option value="power1.in">power1.in</option>
+            <option value="power1.out">power1.out</option>
+            <option value="power1.inOut">power1.inOut</option>
+            <option value="power2.in">power2.in</option>
+            <option value="power2.out">power2.out</option>
+            <option value="power2.inOut">power2.inOut</option>
+            <option value="power3.in">power3.in</option>
+            <option value="power3.out">power3.out</option>
+            <option value="power3.inOut">power3.inOut</option>
+            <option value="power4.in">power4.in</option>
+            <option value="power4.out" selected>power4.out</option>
+            <option value="power4.inOut">power4.inOut</option>
+            <option value="sine.in">sine.in</option>
+            <option value="sine.out">sine.out</option>
+            <option value="sine.inOut">sine.inOut</option>
+            <option value="expo.in">expo.in</option>
+            <option value="expo.out">expo.out</option>
+            <option value="expo.inOut">expo.inOut</option>
+            <option value="circ.in">circ.in</option>
+            <option value="circ.out">circ.out</option>
+            <option value="circ.inOut">circ.inOut</option>
+            <option value="back.in">back.in</option>
+            <option value="back.out">back.out</option>
+            <option value="back.inOut">back.inOut</option>
+            <option value="bounce.in">bounce.in</option>
+            <option value="bounce.out">bounce.out</option>
+            <option value="bounce.inOut">bounce.inOut</option>
+            <option value="elastic.in">elastic.in</option>
+            <option value="elastic.out">elastic.out</option>
+            <option value="elastic.inOut">elastic.inOut</option>
+          </select>
+        </label>
+        <div class="motion-debug-actions">
+          <button id="blockMotionApply" type="button">Apply block</button>
+          <button id="blockMotionReplay" type="button">Replay block</button>
+        </div>
+      </form>
+    </details>
+
+    <details class="motion-debug mines-motion-debug" id="minesMotionDebugPanel" aria-label="Панель анимации рудников">
+      <summary>Mines motion</summary>
+      <form id="minesMotionDebugForm" class="motion-debug-form mines-motion-debug-form">
+        <label
+          >Target stagger <output id="minesMotionTargetStaggerOut">0.035</output>
+          <input id="minesMotionTargetStagger" type="range" min="0" max="0.16" step="0.005" value="0.035" />
+        </label>
+        <label
+          >Enter offset <output id="minesMotionPhaseOffsetOut">0.10s</output>
+          <input id="minesMotionPhaseOffset" type="range" min="-0.8" max="0.8" step="0.01" value="0.10" />
+        </label>
+
+        <fieldset class="motion-debug-fieldset">
+          <legend>Enter</legend>
+          <label
+            >Duration <output id="minesMotionEnterDurationOut">0.30s</output>
+            <input id="minesMotionEnterDuration" type="range" min="0.1" max="2" step="0.01" value="0.30" />
+          </label>
+          <label
+            >Y % <output id="minesMotionEnterYPercentOut">80</output>
+            <input id="minesMotionEnterYPercent" type="range" min="-160" max="160" step="1" value="80" />
+          </label>
+          <label
+            >RotateX <output id="minesMotionEnterRotateXOut">-90°</output>
+            <input id="minesMotionEnterRotateX" type="range" min="-180" max="180" step="1" value="-90" />
+          </label>
+          <label
+            >Opacity <output id="minesMotionEnterOpacityOut">0</output>
+            <input id="minesMotionEnterOpacity" type="range" min="0" max="1" step="0.05" value="0" />
+          </label>
+          <label
+            >Perspective <output id="minesMotionEnterPerspectiveOut">400</output>
+            <input id="minesMotionEnterPerspective" type="range" min="400" max="3200" step="50" value="400" />
+          </label>
+          <label
+            >Ease
+            <select id="minesMotionEnterEase">
+              <option value="none">none</option>
+              <option value="power2.out">power2.out</option>
+              <option value="power3.out">power3.out</option>
+              <option value="power4.out" selected>power4.out</option>
+              <option value="power2.inOut">power2.inOut</option>
+              <option value="power3.inOut">power3.inOut</option>
+              <option value="power4.inOut">power4.inOut</option>
+              <option value="expo.out">expo.out</option>
+              <option value="circ.out">circ.out</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset class="motion-debug-fieldset">
+          <legend>Exit</legend>
+          <label
+            >Duration <output id="minesMotionExitDurationOut">0.30s</output>
+            <input id="minesMotionExitDuration" type="range" min="0.1" max="2" step="0.01" value="0.30" />
+          </label>
+          <label
+            >Y % <output id="minesMotionExitYPercentOut">-20</output>
+            <input id="minesMotionExitYPercent" type="range" min="-160" max="160" step="1" value="-20" />
+          </label>
+          <label
+            >RotateX <output id="minesMotionExitRotateXOut">40°</output>
+            <input id="minesMotionExitRotateX" type="range" min="-180" max="180" step="1" value="40" />
+          </label>
+          <label
+            >Opacity <output id="minesMotionExitOpacityOut">0</output>
+            <input id="minesMotionExitOpacity" type="range" min="0" max="1" step="0.05" value="0" />
+          </label>
+          <label
+            >Perspective <output id="minesMotionExitPerspectiveOut">3200</output>
+            <input id="minesMotionExitPerspective" type="range" min="400" max="3200" step="50" value="3200" />
+          </label>
+          <label
+            >Ease
+            <select id="minesMotionExitEase">
+              <option value="none">none</option>
+              <option value="power1.in">power1.in</option>
+              <option value="power2.in">power2.in</option>
+              <option value="power3.in">power3.in</option>
+              <option value="power2.out">power2.out</option>
+              <option value="power3.out" selected>power3.out</option>
+              <option value="power2.inOut">power2.inOut</option>
+              <option value="power3.inOut">power3.inOut</option>
+              <option value="expo.in">expo.in</option>
+              <option value="circ.in">circ.in</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <div class="motion-debug-actions motion-debug-actions-single">
+          <button id="minesMotionReplay" type="button">Replay mines</button>
+        </div>
+      </form>
+    </details>
+
+    <details
+      class="motion-debug page-transition-debug"
+      id="pageTransitionDebugPanel"
+      aria-label="Панель перехода между страницами"
+    >
+      <summary>Page motion</summary>
+      <form id="pageTransitionDebugForm" class="motion-debug-form">
+        <label
+          >Duration <output id="pageTransitionDurationOut">0.90s</output>
+          <input id="pageTransitionDuration" type="range" min="0.2" max="3" step="0.01" value="0.9" />
+        </label>
+        <label
+          >Old Y <output id="pageTransitionOldYOut">-20vh</output>
+          <input id="pageTransitionOldY" type="range" min="-80" max="40" step="1" value="-20" />
+        </label>
+        <label
+          >Next Y <output id="pageTransitionNextYOut">100vh</output>
+          <input id="pageTransitionNextY" type="range" min="0" max="120" step="1" value="100" />
+        </label>
+        <label
+          >Dark <output id="pageTransitionDarkOut">0.50</output>
+          <input id="pageTransitionDark" type="range" min="0" max="1" step="0.01" value="0.5" />
+        </label>
+        <label class="motion-debug-wide"
+          >Ease
+          <select id="pageTransitionEase">
+            <option value="parallax">parallax</option>
+            <option value="power2.out">power2.out</option>
+            <option value="power3.out">power3.out</option>
+            <option value="power4.out">power4.out</option>
+            <option value="power3.inOut">power3.inOut</option>
+            <option value="power4.inOut">power4.inOut</option>
+            <option value="expo.inOut" selected>expo.inOut</option>
+          </select>
+        </label>
+        <div class="motion-debug-actions">
+          <button id="pageTransitionApply" type="button">Apply page</button>
+          <button id="pageTransitionReplay" type="button">Replay page</button>
+        </div>
+      </form>
+    </details>
+
+    <details class="motion-debug pixelation-debug" id="pixelationDebugPanel" aria-label="Панель пикселизации бренда">
+      <summary>Pixel</summary>
+      <form id="pixelationDebugForm" class="motion-debug-form">
+        <label
+          >Text <output id="pixelationTextSizeOut">12px</output>
+          <input id="pixelationTextSize" type="range" min="2" max="28" step="1" value="12" />
+        </label>
+        <label
+          >Logo <output id="pixelationLogoSizeOut">8px</output>
+          <input id="pixelationLogoSize" type="range" min="2" max="24" step="1" value="8" />
+        </label>
+        <label class="motion-debug-wide"
+          >Marks <output id="pixelationMarkSizeOut">8px</output>
+          <input id="pixelationMarkSize" type="range" min="2" max="24" step="1" value="8" />
+        </label>
+        <div class="motion-debug-actions motion-debug-actions-single">
+          <button id="pixelationReset" type="button">Reset pixel</button>
+        </div>
+      </form>
+    </details>
+      </div>
+    </div>
+
+    <div class="motion-trigger-guide" aria-hidden="true"></div>
+    <div class="block-motion-trigger-guide" aria-hidden="true"></div>
+
+    <div class="layout-grid-overlay" aria-hidden="true">
+      <span class="layout-grid-zone layout-grid-zone-left"></span>
+      <span class="layout-grid-zone layout-grid-zone-gap"></span>
+      <span class="layout-grid-zone layout-grid-zone-right"></span>
+      <span class="layout-grid-line layout-grid-line-left"></span>
+      <span class="layout-grid-line layout-grid-line-mid-a"></span>
+      <span class="layout-grid-line layout-grid-line-mid-b"></span>
+      <span class="layout-grid-line layout-grid-line-right"></span>
     </div>
 
     <script type="module" src="/src/main.ts"></script>
