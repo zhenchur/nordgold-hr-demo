@@ -375,7 +375,6 @@ export function initPageTransition({
       return;
     }
 
-    onBeforeNavigate?.(path, currentPath);
     void barba.go(routeUrl(path));
   }
 
@@ -454,6 +453,10 @@ export function initPageTransition({
         },
         leave(data) {
           const leavingPath = currentPath;
+          const nextPath = normalizePath(data.next.url.path);
+
+          onBeforeNavigate?.(nextPath, leavingPath);
+
           return runPageLeaveAnimation(data.current.container as HTMLElement, () => {
             onBeforeLeave?.(leavingPath);
           });

@@ -76,7 +76,8 @@ let innerNav: ReturnType<typeof initInnerNavReveal> | undefined;
 let blockMotion: ReturnType<typeof initBlockMotion> | null = null;
 let heroShutter: ReturnType<typeof createHeroShutter> | null = null;
 let pixelation: ReturnType<typeof initPixelation> | null = null;
-let shouldPinInnerNavAfterTransition = false;
+let transitionInnerNavClone: HTMLElement | null = null;
+let transitionInnerNavOriginal: HTMLElement | null = null;
 
 const getRouteRoot = (path: "/" | "/page2"): ParentNode => {
   return qsa<HTMLElement>('[data-barba="container"]').find((container) => container.dataset.routePage === path) ?? document;
@@ -94,16 +95,65 @@ const disposeRouteSystems = () => {
   pixelation = null;
 };
 
-const isInnerNavVisible = () => {
+const getVisibleInnerNav = () => {
   const nav = document.querySelector<HTMLElement>(".inner-nav");
 
   if (!nav) {
-    return false;
+    return null;
   }
 
   const style = window.getComputedStyle(nav);
+  const isVisible =
+    style.visibility !== "hidden" && style.pointerEvents !== "none" && Number.parseFloat(style.opacity) > 0.5;
 
-  return style.visibility !== "hidden" && style.pointerEvents !== "none" && Number.parseFloat(style.opacity) > 0.5;
+  return isVisible ? nav : null;
+};
+
+const clearTransitionInnerNavClone = () => {
+  transitionInnerNavClone?.remove();
+
+  if (transitionInnerNavOriginal?.isConnected) {
+    transitionInnerNavOriginal.style.visibility = "";
+    transitionInnerNavOriginal.style.pointerEvents = "";
+  }
+
+  transitionInnerNavClone = null;
+  transitionInnerNavOriginal = null;
+};
+
+const preserveInnerNavDuringTransition = () => {
+  clearTransitionInnerNavClone();
+
+  const nav = getVisibleInnerNav();
+
+  if (!nav) {
+    return;
+  }
+
+  const rect = nav.getBoundingClientRect();
+  const clone = nav.cloneNode(true) as HTMLElement;
+
+  clone.removeAttribute("id");
+  clone.classList.add("inner-nav-transition-clone");
+  clone.setAttribute("aria-hidden", "true");
+  clone.style.position = "fixed";
+  clone.style.top = `${rect.top}px`;
+  clone.style.left = `${rect.left}px`;
+  clone.style.right = "auto";
+  clone.style.width = `${rect.width}px`;
+  clone.style.height = `${rect.height}px`;
+  clone.style.margin = "0";
+  clone.style.opacity = "1";
+  clone.style.visibility = "visible";
+  clone.style.pointerEvents = "none";
+  clone.style.transform = "none";
+  clone.style.zIndex = "30";
+
+  document.body.append(clone);
+  transitionInnerNavClone = clone;
+  transitionInnerNavOriginal = nav;
+  nav.style.visibility = "hidden";
+  nav.style.pointerEvents = "none";
 };
 
 const mountRouteSystems = (path: "/" | "/page2") => {
@@ -127,8 +177,6 @@ const mountRouteSystems = (path: "/" | "/page2") => {
 
   reveal = initRevealSystem({ cleanup: routeCleanup, deferViewportPlay: true, reduceMotion, root: routeRoot });
   innerNav = initInnerNavReveal({ cleanup: routeCleanup, reduceMotion, root: routeRoot });
-  innerNav?.setPinnedVisible(shouldPinInnerNavAfterTransition);
-  shouldPinInnerNavAfterTransition = false;
   blockMotion = initBlockMotion({ cleanup: routeCleanup, reduceMotion, root: routeRoot });
   const mountedHeroShutter = createHeroShutter({
     cleanup: routeCleanup,
@@ -202,13 +250,16 @@ const pageTransition = initPageTransition({
     smoothCorners.refresh();
   },
   onBeforeNavigate: () => {
-    shouldPinInnerNavAfterTransition = isInnerNavVisible();
+    preserveInnerNavDuringTransition();
   },
   onRouteChange: (path) => {
     mountRouteSystems(path);
     settleMountedRoute(path);
+    clearTransitionInnerNavClone();
   }
 });
+
+cleanup.add(clearTransitionInnerNavClone);
 
 const initMotionDebug = () => {
   if (!enableDebugTools) {

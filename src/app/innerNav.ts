@@ -18,7 +18,6 @@ export function initInnerNavReveal({ cleanup, reduceMotion, root = document }: I
   const nav = innerNav;
   let isVisible = false;
   let isHeroMaskClosed = hero.dataset.maskClosed === "true";
-  let isPinnedVisible = false;
 
   function hiddenY() {
     const top = Number.parseFloat(window.getComputedStyle(nav).top) || 0;
@@ -26,7 +25,7 @@ export function initInnerNavReveal({ cleanup, reduceMotion, root = document }: I
   }
 
   function shouldShowNav() {
-    return isPinnedVisible || isHeroMaskClosed;
+    return isHeroMaskClosed;
   }
 
   function setVisible(visible: boolean, force = false) {
@@ -51,11 +50,6 @@ export function initInnerNavReveal({ cleanup, reduceMotion, root = document }: I
     setVisible(shouldShowNav());
   };
 
-  const setPinnedVisible = (visible: boolean) => {
-    isPinnedVisible = visible;
-    setVisible(shouldShowNav(), true);
-  };
-
   gsap.set(nav, {
     autoAlpha: 0,
     pointerEvents: "none",
@@ -69,15 +63,11 @@ export function initInnerNavReveal({ cleanup, reduceMotion, root = document }: I
     invalidateOnRefresh: true,
     onUpdate: () => setVisible(shouldShowNav()),
     onLeave: () => setVisible(shouldShowNav()),
-    onLeaveBack: () => {
-      isPinnedVisible = false;
-      setVisible(false);
-    },
+    onLeaveBack: () => setVisible(false),
     onRefresh: () => setVisible(shouldShowNav(), true)
   }));
 
   return {
-    setHeroMaskState,
-    setPinnedVisible
+    setHeroMaskState
   };
 }
