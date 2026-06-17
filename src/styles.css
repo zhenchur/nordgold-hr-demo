@@ -1638,7 +1638,7 @@ body:has(#layoutGridToggle:checked) .layout-grid-overlay {
 .inner-nav {
   position: fixed;
   z-index: 20;
-  top: 12px;
+  top: 5px;
   left: 20px;
   right: 20px;
   box-sizing: border-box;
