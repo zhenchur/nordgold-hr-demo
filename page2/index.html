@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="ru" class="is-booting">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR Demo</title>
+    <style>
+      html.is-booting {
+        background: #ffffff;
+      }
+
+      html.is-booting body {
+        visibility: hidden;
+      }
+    </style>
+    <noscript>
+      <style>
+        html.is-booting body {
+          visibility: visible;
+        }
+      </style>
+    </noscript>
+    <script type="module" crossorigin src="/nordgold-hr-demo/assets/index-BFywAxGM.js"></script>
+    <link rel="stylesheet" crossorigin href="/nordgold-hr-demo/assets/index-VBq_uHcj.css">
+  </head>
+  <body data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="home" data-route-page="/">
+      <section class="hero" aria-label="Карьера">
+        <div class="hero-stage" data-hero-stage>
+          <div class="scene">
+            <div class="media" id="media">
+              <div class="hero-visuals" data-hero-visuals aria-hidden="true"></div>
+              <div class="veil"></div>
+
+              <div class="hero-copy" data-hero-copy>
+                <h1
+                  class="title"
+                  data-reveal="text"
+                  data-reveal-trigger="manual"
+                  data-reveal-scope="hero"
+                  data-reveal-id="hero-title"
+                >
+                  <span class="line">Стань частью команды</span>
+                  <span class="line">
+                    и успеха
+                    <span
+                      class="brand-text-pixel hero-brand-pixel"
+                      data-pixelate-text="Nordgold"
+                      data-pixelate-kind="text"
+                      data-pixel-size="12"
+                      >Nordgold</span
+                    >
+                  </span>
+                </h1>
+
+                <form
+                  class="search"
+                  data-reveal="element"
+                  data-reveal-trigger="manual"
+                  data-reveal-scope="hero"
+                  data-reveal-sequence="hero-ui"
+                  data-reveal-after="hero-title"
+                >
+                  <label for="q">Найти вакансию</label>
+                  <input id="q" name="q" type="search" aria-label="Найти вакансию" placeholder=" " />
+                  <span class="search-placeholder" data-motion-hover-text-target aria-hidden="true"
+                    >Найти вакансию</span
+                  >
+                  <button type="submit" aria-label="Искать">
+                    <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='search-01'%3e%3cpath%20id='Icon'%20d='M20.6922%2020.8L24%2024M22.9333%2015.4667C22.9333%2019.5904%2019.5904%2022.9333%2015.4667%2022.9333C11.3429%2022.9333%208%2019.5904%208%2015.4667C8%2011.3429%2011.3429%208%2015.4667%208C19.5904%208%2022.9333%2011.3429%2022.9333%2015.4667Z'%20stroke='var(--stroke-0,%20%23161616)'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+                  </button>
+                </form>
+              </div>
+            </div>
+            <svg class="mask-svg" id="maskSvg" aria-hidden="true">
+              <polygon id="maskSector"></polygon>
+            </svg>
+            <svg class="guide-svg" id="guideSvg" aria-hidden="true">
+              <line id="upperRay" />
+              <line id="lowerRay" />
+              <line id="axisLine" />
+              <line id="travelLine" />
+              <line id="yLine" />
+              <circle id="centerDot" r="6" />
+              <circle id="travelDot" r="10" />
+            </svg>
+          </div>
+        </div>
+
+        <header class="nav">
+          <div
+            class="nav-left"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+          >
+            <button class="job-btn" type="button">
+              <span>Все вакансии</span>
+              <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='solar:user-bold'%3e%3cpath%20id='Vector'%20d='M11.9979%2010.9993C13.9307%2010.9993%2015.4976%209.43243%2015.4976%207.49963C15.4976%205.56684%2013.9307%204%2011.9979%204C10.0651%204%208.49829%205.56684%208.49829%207.49963C8.49829%209.43243%2010.0651%2010.9993%2011.9979%2010.9993Z'%20fill='var(--fill-0,%20%23161616)'/%3e%3cpath%20id='Vector_2'%20d='M18.9985%2016.5621C18.9985%2018.7362%2018.9985%2020.4992%2011.9993%2020.4992C5%2020.4992%205%2018.7362%205%2016.5621C5%2014.3879%208.13392%2012.625%2011.9993%2012.625C15.8646%2012.625%2018.9985%2014.3879%2018.9985%2016.5621Z'%20fill='var(--fill-0,%20%23161616)'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+            </button>
+            <nav class="links" aria-label="Основная навигация">
+              <button type="button"><span>Рудники</span></button>
+              <button type="button"><span>Условия работы</span></button>
+              <button type="button"><span>О нас</span></button>
+              <button type="button"><span>Контакты</span></button>
+            </nav>
+          </div>
+
+          <a
+            class="brand"
+            href="/"
+            aria-label="Компания"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+            data-pixelate-image
+            data-pixelate-kind="logo"
+            data-pixel-size="8"
+          >
+            <img src="/nordgold-hr-demo/assets/logo--w1_Bs1F.svg" alt="" />
+          </a>
+
+          <div
+            class="nav-right"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+          >
+            <div class="career">
+              <span>Начало карьеры</span>
+              <button type="button"><span>Fast track</span></button>
+              <button type="button"><span>Sprint</span></button>
+            </div>
+            <a class="phone" href="tel:88007005555">
+              <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='flowbite:phone-outline'%3e%3cpath%20id='Vector'%20d='M19.3448%2015.1631L17.9425%2013.7619C17.5711%2013.3907%2017.0676%2013.1822%2016.5425%2013.1822C16.0175%2013.1822%2015.5139%2013.3907%2015.1425%2013.7619L14.442%2014.4625C14.2583%2014.6467%2014.0401%2014.7928%2013.7999%2014.8926C13.5596%2014.9923%2013.3021%2015.0436%2013.042%2015.0436C12.7819%2015.0436%2012.5243%2014.9923%2012.2841%2014.8926C12.0439%2014.7928%2011.8257%2014.6467%2011.642%2014.4625L9.54146%2012.3594C9.17019%2011.9876%208.96165%2011.4836%208.96165%2010.9581C8.96165%2010.4327%209.17019%209.92867%209.54146%209.55685L10.2409%208.8562C10.6122%208.48439%2010.8207%207.98039%2010.8207%207.45492C10.8207%206.92944%2010.6122%206.42545%2010.2409%206.05363L8.84204%204.65234C8.67041%204.44804%208.45614%204.28378%208.2143%204.17109C7.97245%204.0584%207.70887%204%207.44206%204C7.17525%204%206.91167%204.0584%206.66982%204.17109C6.42797%204.28378%206.21371%204.44804%206.04207%204.65234C2.35868%208.30986%204.09695%2012.5343%207.77805%2016.2158C11.4592%2019.8973%2015.6797%2021.6392%2019.3436%2017.9703C19.5491%2017.7987%2019.7144%2017.584%2019.8278%2017.3415C19.9412%2017.0989%2020%2016.8345%2020%2016.5667C20%2016.299%2019.9412%2016.0345%2019.8278%2015.792C19.7144%2015.5494%2019.5502%2015.3348%2019.3448%2015.1631Z'%20stroke='var(--stroke-0,%20%23F8F8F8)'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='bevel'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+              <span>8 800 700 55 55</span>
+            </a>
+            <button class="lang" type="button" aria-label="Сменить язык">
+              <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2017.5%2017.5'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Group'%3e%3cpath%20id='Vector'%20d='M0.75%208.75C0.75%2013.1684%204.3316%2016.75%208.75%2016.75C13.1684%2016.75%2016.75%2013.1684%2016.75%208.75C16.75%204.3316%2013.1684%200.75%208.75%200.75C4.3316%200.75%200.75%204.3316%200.75%208.75Z'%20stroke='var(--stroke-0,%20white)'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20id='Vector_2'%20d='M9.55%200.790625C9.55%200.790625%2011.95%203.95062%2011.95%208.75062C11.95%2013.5506%209.55%2016.7106%209.55%2016.7106M7.95%2016.7106C7.95%2016.7106%205.55%2013.5506%205.55%208.75062C5.55%203.95062%207.95%200.790625%207.95%200.790625M1.254%2011.5506H16.246M1.254%205.95062H16.246'%20stroke='var(--stroke-0,%20white)'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+            </button>
+          </div>
+
+          <div
+            class="nav-compact-left"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+          >
+            <button class="inner-job-btn" type="button">
+              <span>Все вакансии</span>
+              <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='solar:user-bold'%3e%3cpath%20id='Vector'%20d='M11.9979%2010.9993C13.9307%2010.9993%2015.4976%209.43243%2015.4976%207.49963C15.4976%205.56684%2013.9307%204%2011.9979%204C10.0651%204%208.49829%205.56684%208.49829%207.49963C8.49829%209.43243%2010.0651%2010.9993%2011.9979%2010.9993Z'%20fill='var(--fill-0,%20%23161616)'/%3e%3cpath%20id='Vector_2'%20d='M18.9985%2016.5621C18.9985%2018.7362%2018.9985%2020.4992%2011.9993%2020.4992C5%2020.4992%205%2018.7362%205%2016.5621C5%2014.3879%208.13392%2012.625%2011.9993%2012.625C15.8646%2012.625%2018.9985%2014.3879%2018.9985%2016.5621Z'%20fill='var(--fill-0,%20%23161616)'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+            </button>
+            <button class="inner-menu" type="button">
+              <span>Меню</span>
+              <span class="dots" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div
+            class="nav-compact-right"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-nav"
+          >
+            <button class="inner-career" type="button">
+              <span>Начало карьеры</span>
+              <span class="dots" aria-hidden="true"></span>
+            </button>
+            <a class="inner-icon-btn" href="tel:88007005555" aria-label="Позвонить">
+              <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='flowbite:phone-outline'%3e%3cpath%20id='Vector'%20d='M19.3448%2015.1631L17.9425%2013.7619C17.5711%2013.3907%2017.0676%2013.1822%2016.5425%2013.1822C16.0175%2013.1822%2015.5139%2013.3907%2015.1425%2013.7619L14.442%2014.4625C14.2583%2014.6467%2014.0401%2014.7928%2013.7999%2014.8926C13.5596%2014.9923%2013.3021%2015.0436%2013.042%2015.0436C12.7819%2015.0436%2012.5243%2014.9923%2012.2841%2014.8926C12.0439%2014.7928%2011.8257%2014.6467%2011.642%2014.4625L9.54146%2012.3594C9.17019%2011.9876%208.96165%2011.4836%208.96165%2010.9581C8.96165%2010.4327%209.17019%209.92867%209.54146%209.55685L10.2409%208.8562C10.6122%208.48439%2010.8207%207.98039%2010.8207%207.45492C10.8207%206.92944%2010.6122%206.42545%2010.2409%206.05363L8.84204%204.65234C8.67041%204.44804%208.45614%204.28378%208.2143%204.17109C7.97245%204.0584%207.70887%204%207.44206%204C7.17525%204%206.91167%204.0584%206.66982%204.17109C6.42797%204.28378%206.21371%204.44804%206.04207%204.65234C2.35868%208.30986%204.09695%2012.5343%207.77805%2016.2158C11.4592%2019.8973%2015.6797%2021.6392%2019.3436%2017.9703C19.5491%2017.7987%2019.7144%2017.584%2019.8278%2017.3415C19.9412%2017.0989%2020%2016.8345%2020%2016.5667C20%2016.299%2019.9412%2016.0345%2019.8278%2015.792C19.7144%2015.5494%2019.5502%2015.3348%2019.3448%2015.1631Z'%20stroke='var(--stroke-0,%20%23F8F8F8)'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='bevel'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+            </a>
+            <button class="inner-icon-btn" type="button" aria-label="Сменить язык">
+              <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2017.5%2017.5'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Group'%3e%3cpath%20id='Vector'%20d='M0.75%208.75C0.75%2013.1684%204.3316%2016.75%208.75%2016.75C13.1684%2016.75%2016.75%2013.1684%2016.75%208.75C16.75%204.3316%2013.1684%200.75%208.75%200.75C4.3316%200.75%200.75%204.3316%200.75%208.75Z'%20stroke='var(--stroke-0,%20white)'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20id='Vector_2'%20d='M9.55%200.790625C9.55%200.790625%2011.95%203.95062%2011.95%208.75062C11.95%2013.5506%209.55%2016.7106%209.55%2016.7106M7.95%2016.7106C7.95%2016.7106%205.55%2013.5506%205.55%208.75062C5.55%203.95062%207.95%200.790625%207.95%200.790625M1.254%2011.5506H16.246M1.254%205.95062H16.246'%20stroke='var(--stroke-0,%20white)'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+            </button>
+          </div>
+        </header>
+
+        <div class="vac" id="vacancies">
+          <button
+            class="tab is-active"
+            type="button"
+            data-vacancy-tab="0"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Вахта</span>
+            <small>(12)</small>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            data-vacancy-tab="1"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Стажировка</span>
+            <small>(4)</small>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            data-vacancy-tab="2"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Офис</span>
+            <small>(9)</small>
+          </button>
+          <button
+            class="tab"
+            type="button"
+            data-vacancy-tab="3"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Женщинам</span>
+            <small>(6)</small>
+          </button>
+          <button
+            class="tab tab-hot"
+            type="button"
+            data-vacancy-cta="all"
+            data-reveal="element"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+          >
+            <span>Все вакансии</span>
+            <small>(28)</small>
+          </button>
+          <span
+            class="bar"
+            data-vacancy-bar
+            data-reveal="element"
+            data-reveal-effect="fade"
+            data-reveal-trigger="manual"
+            data-reveal-scope="hero"
+            data-reveal-sequence="hero-ui"
+            data-reveal-after="hero-title"
+            aria-hidden="true"
+          ></span>
+        </div>
+        <div class="lock" aria-hidden="true"></div>
+
+      </section>
+
+      <header class="inner-nav" aria-label="Навигация после первого экрана">
+        <div class="inner-nav-left">
+          <button class="inner-job-btn" type="button">
+            <span>Все вакансии</span>
+            <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='solar:user-bold'%3e%3cpath%20id='Vector'%20d='M11.9979%2010.9993C13.9307%2010.9993%2015.4976%209.43243%2015.4976%207.49963C15.4976%205.56684%2013.9307%204%2011.9979%204C10.0651%204%208.49829%205.56684%208.49829%207.49963C8.49829%209.43243%2010.0651%2010.9993%2011.9979%2010.9993Z'%20fill='var(--fill-0,%20%23161616)'/%3e%3cpath%20id='Vector_2'%20d='M18.9985%2016.5621C18.9985%2018.7362%2018.9985%2020.4992%2011.9993%2020.4992C5%2020.4992%205%2018.7362%205%2016.5621C5%2014.3879%208.13392%2012.625%2011.9993%2012.625C15.8646%2012.625%2018.9985%2014.3879%2018.9985%2016.5621Z'%20fill='var(--fill-0,%20%23161616)'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+          </button>
+          <button class="inner-menu" type="button">
+            <span>Меню</span>
+            <span class="dots" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <a class="inner-brand" href="/" aria-label="Компания" data-pixelate-image data-pixelate-kind="logo" data-pixel-size="8">
+          <img src="/nordgold-hr-demo/assets/logo--w1_Bs1F.svg" alt="" />
+        </a>
+
+        <div class="inner-nav-right">
+          <button class="inner-career" type="button">
+            <span>Начало карьеры</span>
+            <span class="dots" aria-hidden="true"></span>
+          </button>
+          <a class="inner-icon-btn" href="tel:88007005555" aria-label="Позвонить">
+            <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='flowbite:phone-outline'%3e%3cpath%20id='Vector'%20d='M19.3448%2015.1631L17.9425%2013.7619C17.5711%2013.3907%2017.0676%2013.1822%2016.5425%2013.1822C16.0175%2013.1822%2015.5139%2013.3907%2015.1425%2013.7619L14.442%2014.4625C14.2583%2014.6467%2014.0401%2014.7928%2013.7999%2014.8926C13.5596%2014.9923%2013.3021%2015.0436%2013.042%2015.0436C12.7819%2015.0436%2012.5243%2014.9923%2012.2841%2014.8926C12.0439%2014.7928%2011.8257%2014.6467%2011.642%2014.4625L9.54146%2012.3594C9.17019%2011.9876%208.96165%2011.4836%208.96165%2010.9581C8.96165%2010.4327%209.17019%209.92867%209.54146%209.55685L10.2409%208.8562C10.6122%208.48439%2010.8207%207.98039%2010.8207%207.45492C10.8207%206.92944%2010.6122%206.42545%2010.2409%206.05363L8.84204%204.65234C8.67041%204.44804%208.45614%204.28378%208.2143%204.17109C7.97245%204.0584%207.70887%204%207.44206%204C7.17525%204%206.91167%204.0584%206.66982%204.17109C6.42797%204.28378%206.21371%204.44804%206.04207%204.65234C2.35868%208.30986%204.09695%2012.5343%207.77805%2016.2158C11.4592%2019.8973%2015.6797%2021.6392%2019.3436%2017.9703C19.5491%2017.7987%2019.7144%2017.584%2019.8278%2017.3415C19.9412%2017.0989%2020%2016.8345%2020%2016.5667C20%2016.299%2019.9412%2016.0345%2019.8278%2015.792C19.7144%2015.5494%2019.5502%2015.3348%2019.3448%2015.1631Z'%20stroke='var(--stroke-0,%20%23F8F8F8)'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='bevel'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+          </a>
+          <button class="inner-icon-btn" type="button" aria-label="Сменить язык">
+            <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2017.5%2017.5'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Group'%3e%3cpath%20id='Vector'%20d='M0.75%208.75C0.75%2013.1684%204.3316%2016.75%208.75%2016.75C13.1684%2016.75%2016.75%2013.1684%2016.75%208.75C16.75%204.3316%2013.1684%200.75%208.75%200.75C4.3316%200.75%200.75%204.3316%200.75%208.75Z'%20stroke='var(--stroke-0,%20white)'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20id='Vector_2'%20d='M9.55%200.790625C9.55%200.790625%2011.95%203.95062%2011.95%208.75062C11.95%2013.5506%209.55%2016.7106%209.55%2016.7106M7.95%2016.7106C7.95%2016.7106%205.55%2013.5506%205.55%208.75062C5.55%203.95062%207.95%200.790625%207.95%200.790625M1.254%2011.5506H16.246M1.254%205.95062H16.246'%20stroke='var(--stroke-0,%20white)'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+          </button>
+        </div>
+      </header>
+
+      <section class="benefits" aria-label="Почему выбирают компанию">
+        <div class="benefits-stage">
+          <p class="section-kicker" data-reveal="text" data-reveal-trigger="viewport">Наши преимущества</p>
+
+          <div class="benefits-heading">
+            <h2 data-reveal="text" data-reveal-trigger="viewport">
+              Почему выбирают<br /><span
+                class="brand-text-pixel"
+                data-pixelate-text="Nordgold"
+                data-pixelate-kind="text"
+                data-pixel-size="12"
+                >Nordgold</span
+              >
+            </h2>
+            <div
+              class="benefits-controls"
+              data-reveal="group"
+              data-reveal-trigger="viewport"
+              aria-label="Управление преимуществами"
+            >
+              <button
+                class="benefits-arrow"
+                type="button"
+                data-benefits-prev
+                data-reveal-item
+                aria-label="Предыдущее преимущество"
+              ></button>
+              <button
+                class="benefits-arrow"
+                type="button"
+                data-benefits-next
+                data-reveal-item
+                aria-label="Следующее преимущество"
+              ></button>
+            </div>
+          </div>
+
+          <div class="benefits-grid">
+            <aside class="people-panel" aria-label="Компания в цифрах">
+              <div class="people-number-slot" aria-live="polite">
+                <div class="people-number" data-people-number-group>
+                  <span data-people-number>7800</span>
+                  <small data-people-unit>+</small>
+                </div>
+              </div>
+
+              <div class="people-stat-meta">
+                <span class="people-stat-line" aria-hidden="true"></span>
+                <div class="people-stat-row">
+                  <p class="people-stat-caption" data-people-caption>Сотрудников в компании</p>
+                  <img class="people-stat-icon" data-people-icon src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Group%202085662822'%3e%3ccircle%20id='Ellipse%2022'%20cx='25'%20cy='25'%20r='24'%20fill='var(--fill-0,%20white)'%20stroke='var(--stroke-0,%20%23161616)'%20stroke-width='2'/%3e%3cg%20id='Vector%2043'%3e%3cpath%20d='M17.6035%2018.2661C17.4619%2016.2117%2018.6099%2011.555%2022.6799%2011.0301L22.713%2010.6016H26.3323L26.3639%2011.0274C28.1275%2011.2403%2031.6549%2012.9861%2031.6549%2018.2661C31.6549%2018.2661%2030.5523%2018.0716%2028.9916%2017.8973C29.6303%2018.394%2030.8866%2020.3951%2030.3756%2022.95C30.1186%2024.2353%2029.5995%2025.3137%2028.871%2026.1435L29.524%2030.1887L24.6272%2034.8725L19.7305%2030.1887L20.3734%2026.5693C19.4257%2025.6972%2018.7566%2024.4678%2018.4531%2022.95C17.991%2020.6398%2018.9622%2018.6332%2019.6102%2017.9224C18.9651%2018.0119%2018.3084%2018.125%2017.6035%2018.2661Z'%20fill='var(--fill-0,%20white)'/%3e%3cpath%20d='M17.6035%2018.2661C17.4616%2016.208%2018.614%2011.5383%2022.7018%2011.0274M30.4911%2021.3367C31.1338%2021.3367%2033.3562%2020.608%2033.3577%2019.7564C33.36%2018.479%2032.2212%2018.337%2031.6549%2018.2661C31.6549%2018.2661%2028.0337%2017.6274%2024.6272%2017.6274C21.873%2017.6274%2020.0209%2017.7821%2017.6035%2018.2661C17.0372%2018.337%2015.8984%2018.479%2015.9007%2019.7564C15.9022%2020.608%2017.6949%2021.3367%2018.3376%2021.3367M26.658%2014.6631L26.3639%2011.0274L26.3323%2010.6016H22.713L22.4%2014.6631M26.3639%2011.0274C28.1275%2011.2403%2031.6549%2012.9861%2031.6549%2018.2661M28.9916%2017.8973C29.6303%2018.394%2030.8866%2020.3951%2030.3756%2022.95C29.7369%2026.1435%2027.4805%2028.0596%2024.4143%2028.0596C22.8055%2028.0596%2021.4196%2027.5321%2020.3734%2026.5693M20.3734%2026.5693C19.4257%2025.6972%2018.7566%2024.4678%2018.4531%2022.95C17.991%2020.6398%2018.9622%2018.6332%2019.6102%2017.9224M20.3734%2026.5693L19.7305%2030.1887M19.7305%2030.1887C16.9627%2030.5435%2011.4272%2032.6158%2011.4272%2038.0661M19.7305%2030.1887L24.6272%2034.8725M24.6272%2034.8725V38.279M24.6272%2034.8725L29.524%2030.1887M28.871%2026.1435L29.524%2030.1887M29.524%2030.1887C32.2918%2030.5435%2037.8272%2032.6158%2037.8272%2038.0661'%20stroke='var(--stroke-0,%20%23161616)'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="" />
+                </div>
+              </div>
+            </aside>
+
+            <div class="benefits-slider" aria-label="Список преимуществ">
+              <div class="benefits-track" data-benefits-track>
+                <article class="benefit-card" data-reveal-card>
+                  <h3 data-reveal="text" data-reveal-trigger="viewport">Стабильность</h3>
+                  <div class="benefit-card-bottom">
+                    <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2080%2080'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Group%202085662818'%3e%3ccircle%20id='Ellipse%2022'%20cx='40'%20cy='40'%20r='38.5'%20stroke='var(--stroke-0,%20%23A3AD00)'%20stroke-width='3'/%3e%3cpath%20id='Vector%2036'%20d='M20%2040.7622L33.0769%2052.3007L61.5385%2025.3776'%20stroke='var(--stroke-0,%20%23A3AD00)'%20stroke-width='3'%20stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+                    <p>
+                      Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных
+                      процессов, что обеспечивает финансовую стабильность
+                    </p>
+                  </div>
+                </article>
+                <article class="benefit-card" data-reveal-card>
+                  <h3 data-reveal="text" data-reveal-trigger="viewport">Платим больше</h3>
+                  <div class="benefit-card-bottom">
+                    <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2080%2080'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Group%202085663124'%3e%3ccircle%20id='Ellipse%2022'%20cx='40'%20cy='40'%20r='38.5'%20stroke='var(--stroke-0,%20%23A3AD00)'%20stroke-width='3'%20stroke-linecap='round'/%3e%3cpath%20id='Vector%2036'%20d='M26.6667%2053.1832L53.1832%2026.6667M53.1832%2043.1658V26.6667L36.684%2026.6667'%20stroke='var(--stroke-0,%20%23A3AD00)'%20stroke-width='3'%20stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+                    <p>
+                      Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных
+                      процессов, что обеспечивает финансовую стабильность
+                    </p>
+                  </div>
+                </article>
+                <article class="benefit-card" data-reveal-card>
+                  <h3 data-reveal="text" data-reveal-trigger="viewport">Надежная компания</h3>
+                  <div class="benefit-card-bottom">
+                    <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2080%2080'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Group%202085662827'%3e%3ccircle%20id='Ellipse%2031'%20cx='40'%20cy='40'%20r='38.5'%20stroke='var(--stroke-0,%20%23A3AD00)'%20stroke-width='3'/%3e%3cpath%20id='Vector%2042'%20d='M8.00596%2059.7387L40.8425%2018.0067L57.8064%2036.6046L75.006%2053.8042M40.8425%2018.0067L52.006%2042.0067L44.3924%2047.4912L54.006%2064.0067M43.006%2038.0067L33.006%2046.0067M57.8064%2036.6046L65.006%2029.0067L72.006%2036.6046'%20stroke='var(--stroke-0,%20%23A3AD00)'%20stroke-width='3'%20stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+                    <p>
+                      Мы обеспечиваем максимально возможную безопасность и высокую эффективность производственных
+                      процессов, что обеспечивает финансовую стабильность
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="success-section" aria-label="Достигайте успехов вместе с нами">
+        <div class="success-stage">
+          <div class="success-head">
+            <p class="success-kicker" data-reveal="text" data-reveal-trigger="viewport">Направления</p>
+            <h2 data-reveal="text" data-reveal-trigger="viewport">Достигайте успехов<br />вместе с нами</h2>
+          </div>
+
+          <article class="success-slider" data-block-motion aria-label="Направления карьеры">
+            <img class="success-bg success-bg-base success-bg-visual" src="/nordgold-hr-demo/assets/success-slide-leaders-BbAhd8xe.png" alt="" />
+            <div class="success-shade" aria-hidden="true"></div>
+            <span class="success-star-frame" data-pixelate-image data-pixelate-kind="mark" data-pixel-size="8" aria-hidden="true">
+              <img class="success-star" src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2036.6753%2036.68'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Vector'%3e%3cpath%20d='M11.8822%2011.8792L18.337%200L24.7929%2011.8792C24.7929%2011.8792%2021.2966%2010.6064%2018.337%2010.6064C14.8498%2010.6064%2011.8822%2011.8792%2011.8822%2011.8792Z'%20fill='white'/%3e%3cpath%20d='M11.8766%2024.7946L0%2018.3402L11.8766%2011.886C11.8766%2011.886%2010.6043%2015.3809%2010.6043%2018.3402C10.6043%2021.8276%2011.8766%2024.7946%2011.8766%2024.7946Z'%20fill='white'/%3e%3cpath%20d='M24.7929%2024.8009L18.337%2036.68L11.8822%2024.8009C11.8822%2024.8009%2015.3774%2026.0736%2018.337%2026.0736C21.8252%2026.0736%2024.7929%2024.8009%2024.7929%2024.8009Z'%20fill='white'/%3e%3cpath%20d='M24.7987%2011.8807L36.6753%2018.335L24.7987%2024.7892C24.7987%2024.7892%2026.071%2021.2943%2026.071%2018.335C26.071%2014.8476%2024.7987%2011.8807%2024.7987%2011.8807Z'%20fill='white'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+            </span>
+
+            <div class="success-copy">
+              <div class="success-copy-head">
+                <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2048.5623%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Group%202085663113'%3e%3cpath%20id='Ellipse%2022'%20d='M24.2812%201C37.15%201.00006%2047.5625%2011.3084%2047.5625%2024C47.5625%2036.6916%2037.15%2046.9999%2024.2812%2047C11.4124%2047%201%2036.6916%201%2024C1%2011.3084%2011.4124%201%2024.2812%201Z'%20stroke='var(--stroke-0,%20white)'%20stroke-width='2'/%3e%3cpath%20id='Vector%2043'%20d='M17.2475%2017.8173C17.1039%2015.7592%2018.2698%2011.0895%2022.4054%2010.5786M30.286%2020.8879C30.9362%2020.8879%2033.1846%2020.1592%2033.1862%2019.3076C33.1885%2018.0302%2032.0363%2017.8882%2031.4634%2017.8173C31.4634%2017.8173%2027.7998%2017.1786%2024.3534%2017.1786C21.5669%2017.1786%2019.6932%2017.3333%2017.2475%2017.8173C16.6745%2017.8882%2015.5224%2018.0302%2015.5247%2019.3076C15.5262%2020.1592%2017.3399%2020.8879%2017.9901%2020.8879M26.408%2014.2143L26.1104%2010.5786L26.0785%2010.1528H22.4167L22.1001%2014.2143M26.1104%2010.5786C27.8947%2010.7915%2031.4634%2012.5373%2031.4634%2017.8173M28.7689%2017.4485C29.4151%2017.9452%2030.6861%2019.9463%2030.1692%2022.5011C29.523%2025.6947%2027.2402%2027.6108%2024.138%2027.6108C22.5104%2027.6108%2021.1083%2027.0833%2020.0498%2026.1205M20.0498%2026.1205C19.0909%2025.2483%2018.4141%2024.019%2018.1069%2022.5011C17.6395%2020.191%2018.6221%2018.1844%2019.2777%2017.4736M20.0498%2026.1205L19.3993%2029.7399M19.3993%2029.7399C16.5991%2030.0947%2010.9988%2032.1669%2010.9988%2037.6173M19.3993%2029.7399L24.3534%2034.4237M24.3534%2034.4237V37.8302M24.3534%2034.4237L29.3076%2029.7399M28.6469%2025.6947L29.3076%2029.7399M29.3076%2029.7399C32.1077%2030.0947%2037.7081%2032.1669%2037.7081%2037.6173'%20stroke='var(--stroke-0,%20white)'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+                <h3>Ответственность<br />достойная стратегов</h3>
+              </div>
+              <p>
+                Станьте частью команды, где решения превращаются в результат. Ведите людей, развивайте процессы и
+                влияйте на стратегию
+                <span class="brand-text-pixel" data-pixelate-text="Nordgold" data-pixelate-kind="text" data-pixel-size="12"
+                  >Nordgold</span
+                >.
+              </p>
+            </div>
+
+            <span class="success-divider" aria-hidden="true"></span>
+
+            <div class="success-panel">
+              <div
+                class="success-controls"
+                data-reveal="group"
+                data-reveal-trigger="viewport"
+                aria-label="Управление направлениями"
+              >
+                <button
+                  class="success-arrow"
+                  type="button"
+                  data-success-prev
+                  data-reveal-item
+                  aria-label="Предыдущее направление"
+                ></button>
+                <button
+                  class="success-arrow"
+                  type="button"
+                  data-success-next
+                  data-reveal-item
+                  aria-label="Следующее направление"
+                ></button>
+              </div>
+
+              <div
+                class="success-tabs"
+                data-reveal="group"
+                data-reveal-trigger="viewport"
+                aria-label="Категории вакансий"
+              >
+                <a class="success-tab is-active" href="#vacancies" data-reveal-item>
+                  <span>Руководителям</span>
+                  <small>(6)</small>
+                </a>
+                <a class="success-tab" href="#vacancies" data-reveal-item>
+                  <span>Рабочие специальности</span>
+                  <small>(4)</small>
+                </a>
+                <a class="success-tab" href="#vacancies" data-reveal-item>
+                  <span>Студентам</span>
+                  <small>(12)</small>
+                </a>
+                <a class="success-tab success-tab-all" href="#vacancies" data-reveal-item>
+                  <span>Все вакансии</span>
+                  <small>(28)</small>
+                </a>
+              </div>
+
+              <div class="success-tab-line" aria-hidden="true">
+                <span></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mines-section" aria-label="Локации рудников">
+        <img class="mines-bg" src="/nordgold-hr-demo/assets/mines-bg-CNb_dk4E.png" alt="" />
+        <div class="mines-shade" aria-hidden="true"></div>
+
+        <p class="mines-kicker" data-reveal="text" data-reveal-trigger="viewport">Наши рудники</p>
+        <h2 class="mines-title" data-reveal="text" data-reveal-trigger="viewport">
+          Предлагаем работу<br />на 9 рудниках
+        </h2>
+
+        <article class="mines-card" data-block-motion aria-label="Карта рудников">
+          <div class="mines-summary" aria-live="polite">
+            <p data-mines-region>Амурская область</p>
+            <h3 data-mines-title>Березитовый</h3>
+          </div>
+
+          <div class="mines-country-tabs" aria-label="Страны">
+            <button class="mines-country is-active" type="button"><span>Россия</span></button>
+            <button class="mines-country" type="button"><span>Казахстан</span></button>
+            <button class="mines-country" type="button"><span>Буркина-Фасо</span></button>
+            <button class="mines-country" type="button"><span>Гвинея</span></button>
+          </div>
+
+          <div class="mines-stats" aria-label="Характеристики рудника">
+            <div class="mines-stat">
+              <span class="mines-stat-label">Местоположение</span>
+              <span class="mines-stat-value">
+                <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='16'%20cy='16'%20r='15'%20stroke='%23161616'%20stroke-width='2'/%3e%3cpath%20d='M3.19678%2023.8959L16.3314%207.20312L23.117%2014.6423L29.9968%2021.5221M16.3314%207.20312L20.7968%2016.8031L17.7513%2018.9969L21.5968%2025.6031M23.117%2014.6423L25.9968%2011.6031L28.7968%2014.6423'%20stroke='%23161616'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/svg%3e" alt="" />
+                <strong data-mines-location>Россия, Забайкалье</strong>
+              </span>
+            </div>
+            <span class="mines-stat-line" aria-hidden="true"></span>
+            <div class="mines-stat">
+              <span class="mines-stat-label">Способ добычи</span>
+              <span class="mines-stat-value">
+                <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M5.40759%2017.5293C4.58559%2017.63%203.89026%2018.152%203.61026%2018.9313C3.18226%2020.1226%202.57559%2022.192%202.19159%2025.14C2.05892%2026.1626%202.77559%2027.0746%203.80359%2027.1613C4.85359%2027.2513%206.36226%2027.3346%208.33026%2027.3346C10.2983%2027.3346%2011.8076%2027.2513%2012.8583%2027.162C13.8856%2027.0746%2014.6023%2026.1626%2014.4689%2025.14C14.0856%2022.192%2013.4789%2020.1226%2013.0509%2018.9313C12.7709%2018.152%2012.0756%2017.6293%2011.2536%2017.5293C10.4596%2017.4326%209.39492%2017.3346%208.33026%2017.3346C7.26559%2017.3346%206.20092%2017.4326%205.40759%2017.5293Z'%20stroke='%23161616'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M20.7409%2017.5293C19.9189%2017.63%2019.2236%2018.152%2018.9436%2018.9313C18.5156%2020.1226%2017.9089%2022.192%2017.5249%2025.14C17.3923%2026.1626%2018.1089%2027.0746%2019.1369%2027.1613C20.1869%2027.2513%2021.6956%2027.3346%2023.6636%2027.3346C25.6316%2027.3346%2027.1409%2027.2513%2028.1916%2027.162C29.2189%2027.0746%2029.9356%2026.1626%2029.8023%2025.14C29.4189%2022.192%2028.8123%2020.1226%2028.3843%2018.9313C28.1043%2018.152%2027.4089%2017.6293%2026.5869%2017.5293C25.7929%2017.4326%2024.7276%2017.3346%2023.6636%2017.3346C22.5996%2017.3346%2021.5343%2017.4326%2020.7409%2017.5293Z'%20stroke='%23161616'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M13.0743%204.86264C12.2523%204.9633%2011.5569%205.4853%2011.2769%206.26464C10.8489%207.45597%2010.2423%209.5253%209.85826%2012.4733C9.72559%2013.496%2010.4423%2014.408%2011.4703%2014.4946C12.5203%2014.5846%2014.0289%2014.668%2015.9969%2014.668C17.9649%2014.668%2019.4743%2014.5846%2020.5249%2014.4953C21.5523%2014.408%2022.2689%2013.496%2022.1356%2012.4733C21.7523%209.5253%2021.1456%207.45597%2020.7176%206.26464C20.4376%205.4853%2019.7423%204.96264%2018.9203%204.86264C18.1263%204.76597%2017.0609%204.66797%2015.9969%204.66797C14.9329%204.66797%2013.8676%204.76597%2013.0743%204.86264Z'%20stroke='%23161616'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="" />
+                <strong data-mines-method>Открытая добыча</strong>
+              </span>
+            </div>
+            <span class="mines-stat-line" aria-hidden="true"></span>
+            <div class="mines-stat">
+              <span class="mines-stat-label">Год запуска</span>
+              <span class="mines-stat-value">
+                <img src="data:image/svg+xml,%3csvg%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M25.3333%208.33398H6.66667C5.19391%208.33398%204%209.52789%204%2011.0007V25.6673C4%2027.1401%205.19391%2028.334%206.66667%2028.334H25.3333C26.8061%2028.334%2028%2027.1401%2028%2025.6673V11.0007C28%209.52789%2026.8061%208.33398%2025.3333%208.33398Z'%20stroke='%23161616'%20stroke-width='2'/%3e%3cpath%20d='M5.33203%2014.6667H26.6654M11.9987%2021.3333H19.9987M10.6654%204V9.33333M21.332%204V9.33333'%20stroke='%23161616'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/svg%3e" alt="" />
+                <strong data-mines-year>2010</strong>
+              </span>
+            </div>
+            <span class="mines-stat-line" aria-hidden="true"></span>
+          </div>
+
+          <span class="mines-divider" aria-hidden="true"></span>
+
+          <div class="mines-map" aria-hidden="true">
+            <div class="mines-map-layer">
+              <img class="mines-map-shape" src="/nordgold-hr-demo/assets/mines-map-russia-D2CRrqmB.svg" alt="" />
+              <div class="mines-map-ranges">
+                <span class="mines-map-range mines-map-range-near"></span>
+                <span class="mines-map-range mines-map-range-far"></span>
+                <span class="mines-map-range-label mines-map-range-label-coordinates">66° 25′&nbsp; 94° 15′</span>
+                <span class="mines-map-range-label mines-map-range-label-near">2 500 км</span>
+                <span class="mines-map-range-label mines-map-range-label-far">5 000 км</span>
+              </div>
+              <svg class="mines-map-connector" viewBox="0 0 944 719" aria-hidden="true">
+                <line data-mines-connector x1="505.29" y1="412.93" x2="616.89" y2="491.18"></line>
+              </svg>
+              <div class="mines-map-markers">
+                <span class="mines-map-star" data-pixelate-image data-pixelate-kind="mark" data-pixel-size="8">
+                  <img src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2039.9904%2039.9995'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M12.9551%2012.9547L19.9935%200L27.033%2012.9547C27.033%2012.9547%2023.2207%2011.5668%2019.9935%2011.5668C16.191%2011.5668%2012.9551%2012.9547%2012.9551%2012.9547Z'%20fill='%23F0AB00'/%3e%3cpath%20d='M12.9503%2027.0422L0%2020.0035L12.9503%2012.9648C12.9503%2012.9648%2011.5631%2016.7762%2011.5631%2020.0035C11.5631%2023.8066%2012.9503%2027.0422%2012.9503%2027.0422Z'%20fill='%23A2AD00'/%3e%3cpath%20d='M27.033%2027.0449L19.9935%2039.9995L12.9551%2027.0449C12.9551%2027.0449%2016.7663%2028.4328%2019.9935%2028.4328C23.7971%2028.4328%2027.033%2027.0449%2027.033%2027.0449Z'%20fill='%23A2AD00'/%3e%3cpath%20d='M27.04%2012.9551L39.9904%2019.9937L27.04%2027.0324C27.04%2027.0324%2028.4273%2023.221%2028.4273%2019.9937C28.4273%2016.1906%2027.04%2012.9551%2027.04%2012.9551Z'%20fill='%23A2AD00'/%3e%3c/svg%3e" alt="" />
+                </span>
+                <span class="mines-map-point mines-map-point-1" data-mines-point="0"></span>
+                <span class="mines-map-point mines-map-point-2" data-mines-point="1"></span>
+                <span class="mines-map-point mines-map-point-3" data-mines-point="2"></span>
+                <span class="mines-map-point mines-map-point-4" data-mines-point="3"></span>
+                <span class="mines-map-point mines-map-point-5 is-active" data-mines-point="4"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mines-point-nav" aria-label="Переключение точек на карте">
+            <button class="mines-arrow mines-arrow-prev" type="button" data-mines-prev aria-label="Предыдущий рудник"></button>
+            <button class="mines-arrow mines-arrow-next" type="button" data-mines-next aria-label="Следующий рудник"></button>
+          </div>
+
+          <a class="mines-vacancy" href="#vacancies" data-reveal="element" data-reveal-trigger="viewport">
+            <span class="mines-vacancy-head">
+              <span class="mines-vacancy-label">Доступные вакансии</span>
+              <span class="mines-vacancy-icon" aria-hidden="true"></span>
+            </span>
+            <small data-mines-vacancies>(9)</small>
+          </a>
+        </article>
+      </section>
+    </main>
+
+    <div class="debug-dock" aria-label="Панели настройки">
+      <input class="debug-dock-toggle-input" id="debugPanelsToggle" type="checkbox" />
+      <label class="debug-dock-toggle" for="debugPanelsToggle">Panels</label>
+      <div class="debug-dock-panels">
+        <div class="layout-debug-panel" aria-label="Панель сетки верстки">
+          <label>
+            <input id="layoutGridToggle" type="checkbox" />
+            <span>Сетка</span>
+          </label>
+        </div>
+
+        <details class="debug" id="debug">
+          <summary>Debug</summary>
+          <form class="debug-form" id="debugForm">
+            <label
+              >Center X <output id="centerXOut">6.5%</output
+              ><input id="centerX" type="range" min="0" max="100" step="0.5" value="6.5"
+            /></label>
+            <label
+              >Center Y <output id="centerYOut">77.0%</output
+              ><input id="centerY" type="range" min="0" max="100" step="0.5" value="77"
+            /></label>
+            <label
+              >Upper <output id="upperOut">110deg</output
+              ><input id="upperOpen" type="range" min="0" max="180" step="1" value="110"
+            /></label>
+            <label
+              >Lower <output id="lowerOut">15deg</output
+              ><input id="lowerOpen" type="range" min="0" max="180" step="1" value="15"
+            /></label>
+            <label
+              >Axis <output id="axisOut">-19deg</output
+              ><input id="axisDeg" type="range" min="-180" max="180" step="1" value="-19"
+            /></label>
+            <label
+              >Travel <output id="travelOut">50.0%</output
+              ><input id="travelFrom" type="range" min="0" max="70" step="0.5" value="50"
+            /></label>
+            <label
+              >Y offset <output id="yOut">+42.0%</output
+              ><input id="yOffset" type="range" min="-160" max="160" step="0.5" value="42"
+            /></label>
+            <label
+              >Duration <output id="durationOut">1.00s</output
+              ><input id="duration" type="range" min="0.2" max="3" step="0.01" value="1"
+            /></label>
+            <label
+              >Media speed <output id="mediaScrollOut">0.35x</output
+              ><input id="mediaScrollFactor" type="range" min="0" max="1" step="0.01" value="0.35"
+            /></label>
+            <label
+              >Ease
+              <select id="ease">
+                <option value="none">none</option>
+                <option value="power2.out">power2.out</option>
+                <option value="power3.out">power3.out</option>
+                <option value="power4.out" selected>power4.out</option>
+                <option value="power2.inOut">power2.inOut</option>
+                <option value="power3.inOut">power3.inOut</option>
+                <option value="expo.inOut">expo.inOut</option>
+              </select>
+            </label>
+            <div class="debug-actions">
+              <button id="playMask" type="button">Play</button>
+              <button id="resetMask" type="button">Reset</button>
+              <button id="finalMask" type="button">Final</button>
+              <label class="check"><input id="showGuide" type="checkbox" /> Guides</label>
+            </div>
+          </form>
+        </details>
+
+        <details class="motion-debug" id="motionDebugPanel" aria-label="Панель текстовой анимации">
+          <summary>Motion</summary>
+          <form id="motionDebugForm" class="motion-debug-form">
+        <label
+          >Split
+          <select id="motionSplitMode">
+            <option value="words">Words</option>
+            <option value="lines" selected>Lines</option>
+          </select>
+        </label>
+        <label
+          >Origin
+          <select id="motionOrigin">
+            <option value="50% 50%">Center</option>
+            <option value="50% 0%" selected>Top</option>
+            <option value="50% 100%">Bottom</option>
+            <option value="0% 50%">Left</option>
+            <option value="100% 50%">Right</option>
+            <option value="0% 0%">Top left</option>
+            <option value="100% 0%">Top right</option>
+            <option value="0% 100%">Bottom left</option>
+            <option value="100% 100%">Bottom right</option>
+          </select>
+        </label>
+        <label
+          >Duration <output id="motionDurationOut">1.00s</output>
+          <input id="motionDuration" type="range" min="0.2" max="4" step="0.01" value="1" />
+        </label>
+        <label
+          >Delay <output id="motionDelayOut">0.00s</output>
+          <input id="motionDelay" type="range" min="0" max="1" step="0.01" value="0" />
+        </label>
+        <label
+          >Stagger <output id="motionStaggerOut">0.030</output>
+          <input id="motionStagger" type="range" min="0" max="0.2" step="0.005" value="0.03" />
+        </label>
+        <label
+          >Perspective <output id="motionPerspectiveOut">600</output>
+          <input id="motionPerspective" type="range" min="600" max="3200" step="50" value="600" />
+        </label>
+        <label
+          >RotateX <output id="motionRotateXOut">-90°</output>
+          <input id="motionRotateX" type="range" min="-180" max="0" step="1" value="-90" />
+        </label>
+        <label
+          >Opacity <output id="motionOpacityOut">0</output>
+          <input id="motionOpacity" type="range" min="0" max="1" step="0.05" value="0" />
+        </label>
+        <label
+          >Y % <output id="motionYPercentOut">120</output>
+          <input id="motionYPercent" type="range" min="-120" max="120" step="1" value="120" />
+        </label>
+        <label class="motion-debug-wide"
+          >Trigger line <output id="motionTriggerLineOut">90%</output>
+          <input id="motionTriggerLine" type="range" min="0" max="100" step="1" value="90" />
+        </label>
+        <label class="motion-debug-check">
+          <input id="motionTriggerGuide" type="checkbox" />
+          <span>Show trigger line</span>
+        </label>
+        <label
+          >Ease
+          <select id="motionEase">
+            <option value="none">none</option>
+            <option value="power1.in">power1.in</option>
+            <option value="power1.out">power1.out</option>
+            <option value="power1.inOut">power1.inOut</option>
+            <option value="power2.in">power2.in</option>
+            <option value="power2.out">power2.out</option>
+            <option value="power2.inOut">power2.inOut</option>
+            <option value="power3.in">power3.in</option>
+            <option value="power3.out">power3.out</option>
+            <option value="power3.inOut">power3.inOut</option>
+            <option value="power4.in">power4.in</option>
+            <option value="power4.out" selected>power4.out</option>
+            <option value="power4.inOut">power4.inOut</option>
+            <option value="sine.in">sine.in</option>
+            <option value="sine.out">sine.out</option>
+            <option value="sine.inOut">sine.inOut</option>
+            <option value="expo.in">expo.in</option>
+            <option value="expo.out">expo.out</option>
+            <option value="expo.inOut">expo.inOut</option>
+            <option value="circ.in">circ.in</option>
+            <option value="circ.out">circ.out</option>
+            <option value="circ.inOut">circ.inOut</option>
+            <option value="back.in">back.in</option>
+            <option value="back.out">back.out</option>
+            <option value="back.inOut">back.inOut</option>
+            <option value="bounce.in">bounce.in</option>
+            <option value="bounce.out">bounce.out</option>
+            <option value="bounce.inOut">bounce.inOut</option>
+            <option value="elastic.in">elastic.in</option>
+            <option value="elastic.out">elastic.out</option>
+            <option value="elastic.inOut">elastic.inOut</option>
+          </select>
+        </label>
+        <div class="motion-debug-actions">
+          <button id="motionApply" type="button">Apply</button>
+          <button id="motionReplay" type="button">Replay</button>
+        </div>
+      </form>
+    </details>
+
+    <details class="motion-debug block-motion-debug" id="blockMotionDebugPanel" aria-label="Панель анимации плашек">
+      <summary>Block motion</summary>
+      <form id="blockMotionDebugForm" class="motion-debug-form">
+        <label
+          >Origin
+          <select id="blockMotionOrigin">
+            <option value="50% 50%">Center</option>
+            <option value="50% 0%" selected>Top</option>
+            <option value="50% 100%">Bottom</option>
+            <option value="0% 50%">Left</option>
+            <option value="100% 50%">Right</option>
+            <option value="0% 0%">Top left</option>
+            <option value="100% 0%">Top right</option>
+            <option value="0% 100%">Bottom left</option>
+            <option value="100% 100%">Bottom right</option>
+          </select>
+        </label>
+        <label
+          >Duration <output id="blockMotionDurationOut">1.00s</output>
+          <input id="blockMotionDuration" type="range" min="0.2" max="4" step="0.01" value="1" />
+        </label>
+        <label
+          >Delay <output id="blockMotionDelayOut">0.00s</output>
+          <input id="blockMotionDelay" type="range" min="0" max="1" step="0.01" value="0" />
+        </label>
+        <label
+          >Perspective <output id="blockMotionPerspectiveOut">600</output>
+          <input id="blockMotionPerspective" type="range" min="600" max="3200" step="50" value="600" />
+        </label>
+        <label
+          >RotateX <output id="blockMotionRotateXOut">-20deg</output>
+          <input id="blockMotionRotateX" type="range" min="-180" max="0" step="1" value="-20" />
+        </label>
+        <label
+          >Opacity <output id="blockMotionOpacityOut">1</output>
+          <input id="blockMotionOpacity" type="range" min="0" max="1" step="0.05" value="1" />
+        </label>
+        <label
+          >Scale <output id="blockMotionScaleOut">0.90</output>
+          <input id="blockMotionScale" type="range" min="0.8" max="1.2" step="0.01" value="0.9" />
+        </label>
+        <label
+          >Y % <output id="blockMotionYPercentOut">15</output>
+          <input id="blockMotionYPercent" type="range" min="-120" max="120" step="1" value="15" />
+        </label>
+        <label class="motion-debug-wide"
+          >Trigger line <output id="blockMotionTriggerLineOut">100%</output>
+          <input id="blockMotionTriggerLine" type="range" min="0" max="100" step="1" value="100" />
+        </label>
+        <label class="motion-debug-check">
+          <input id="blockMotionTriggerGuide" type="checkbox" />
+          <span>Show block trigger line</span>
+        </label>
+        <label class="motion-debug-wide"
+          >Ease
+          <select id="blockMotionEase">
+            <option value="none">none</option>
+            <option value="power1.in">power1.in</option>
+            <option value="power1.out">power1.out</option>
+            <option value="power1.inOut">power1.inOut</option>
+            <option value="power2.in">power2.in</option>
+            <option value="power2.out">power2.out</option>
+            <option value="power2.inOut">power2.inOut</option>
+            <option value="power3.in">power3.in</option>
+            <option value="power3.out">power3.out</option>
+            <option value="power3.inOut">power3.inOut</option>
+            <option value="power4.in">power4.in</option>
+            <option value="power4.out" selected>power4.out</option>
+            <option value="power4.inOut">power4.inOut</option>
+            <option value="sine.in">sine.in</option>
+            <option value="sine.out">sine.out</option>
+            <option value="sine.inOut">sine.inOut</option>
+            <option value="expo.in">expo.in</option>
+            <option value="expo.out">expo.out</option>
+            <option value="expo.inOut">expo.inOut</option>
+            <option value="circ.in">circ.in</option>
+            <option value="circ.out">circ.out</option>
+            <option value="circ.inOut">circ.inOut</option>
+            <option value="back.in">back.in</option>
+            <option value="back.out">back.out</option>
+            <option value="back.inOut">back.inOut</option>
+            <option value="bounce.in">bounce.in</option>
+            <option value="bounce.out">bounce.out</option>
+            <option value="bounce.inOut">bounce.inOut</option>
+            <option value="elastic.in">elastic.in</option>
+            <option value="elastic.out">elastic.out</option>
+            <option value="elastic.inOut">elastic.inOut</option>
+          </select>
+        </label>
+        <div class="motion-debug-actions">
+          <button id="blockMotionApply" type="button">Apply block</button>
+          <button id="blockMotionReplay" type="button">Replay block</button>
+        </div>
+      </form>
+    </details>
+
+    <details class="motion-debug mines-motion-debug" id="minesMotionDebugPanel" aria-label="Панель анимации рудников">
+      <summary>Mines motion</summary>
+      <form id="minesMotionDebugForm" class="motion-debug-form mines-motion-debug-form">
+        <label
+          >Target stagger <output id="minesMotionTargetStaggerOut">0.035</output>
+          <input id="minesMotionTargetStagger" type="range" min="0" max="0.16" step="0.005" value="0.035" />
+        </label>
+        <label
+          >Enter offset <output id="minesMotionPhaseOffsetOut">0.10s</output>
+          <input id="minesMotionPhaseOffset" type="range" min="-0.8" max="0.8" step="0.01" value="0.10" />
+        </label>
+
+        <fieldset class="motion-debug-fieldset">
+          <legend>Enter</legend>
+          <label
+            >Duration <output id="minesMotionEnterDurationOut">0.30s</output>
+            <input id="minesMotionEnterDuration" type="range" min="0.1" max="2" step="0.01" value="0.30" />
+          </label>
+          <label
+            >Y % <output id="minesMotionEnterYPercentOut">80</output>
+            <input id="minesMotionEnterYPercent" type="range" min="-160" max="160" step="1" value="80" />
+          </label>
+          <label
+            >RotateX <output id="minesMotionEnterRotateXOut">-90°</output>
+            <input id="minesMotionEnterRotateX" type="range" min="-180" max="180" step="1" value="-90" />
+          </label>
+          <label
+            >Opacity <output id="minesMotionEnterOpacityOut">0</output>
+            <input id="minesMotionEnterOpacity" type="range" min="0" max="1" step="0.05" value="0" />
+          </label>
+          <label
+            >Perspective <output id="minesMotionEnterPerspectiveOut">400</output>
+            <input id="minesMotionEnterPerspective" type="range" min="400" max="3200" step="50" value="400" />
+          </label>
+          <label
+            >Ease
+            <select id="minesMotionEnterEase">
+              <option value="none">none</option>
+              <option value="power2.out">power2.out</option>
+              <option value="power3.out">power3.out</option>
+              <option value="power4.out" selected>power4.out</option>
+              <option value="power2.inOut">power2.inOut</option>
+              <option value="power3.inOut">power3.inOut</option>
+              <option value="power4.inOut">power4.inOut</option>
+              <option value="expo.out">expo.out</option>
+              <option value="circ.out">circ.out</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset class="motion-debug-fieldset">
+          <legend>Exit</legend>
+          <label
+            >Duration <output id="minesMotionExitDurationOut">0.30s</output>
+            <input id="minesMotionExitDuration" type="range" min="0.1" max="2" step="0.01" value="0.30" />
+          </label>
+          <label
+            >Y % <output id="minesMotionExitYPercentOut">-20</output>
+            <input id="minesMotionExitYPercent" type="range" min="-160" max="160" step="1" value="-20" />
+          </label>
+          <label
+            >RotateX <output id="minesMotionExitRotateXOut">40°</output>
+            <input id="minesMotionExitRotateX" type="range" min="-180" max="180" step="1" value="40" />
+          </label>
+          <label
+            >Opacity <output id="minesMotionExitOpacityOut">0</output>
+            <input id="minesMotionExitOpacity" type="range" min="0" max="1" step="0.05" value="0" />
+          </label>
+          <label
+            >Perspective <output id="minesMotionExitPerspectiveOut">3200</output>
+            <input id="minesMotionExitPerspective" type="range" min="400" max="3200" step="50" value="3200" />
+          </label>
+          <label
+            >Ease
+            <select id="minesMotionExitEase">
+              <option value="none">none</option>
+              <option value="power1.in">power1.in</option>
+              <option value="power2.in">power2.in</option>
+              <option value="power3.in">power3.in</option>
+              <option value="power2.out">power2.out</option>
+              <option value="power3.out" selected>power3.out</option>
+              <option value="power2.inOut">power2.inOut</option>
+              <option value="power3.inOut">power3.inOut</option>
+              <option value="expo.in">expo.in</option>
+              <option value="circ.in">circ.in</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <div class="motion-debug-actions motion-debug-actions-single">
+          <button id="minesMotionReplay" type="button">Replay mines</button>
+        </div>
+      </form>
+    </details>
+
+    <details
+      class="motion-debug page-transition-debug"
+      id="pageTransitionDebugPanel"
+      aria-label="Панель перехода между страницами"
+    >
+      <summary>Page motion</summary>
+      <form id="pageTransitionDebugForm" class="motion-debug-form">
+        <label
+          >Duration <output id="pageTransitionDurationOut">0.90s</output>
+          <input id="pageTransitionDuration" type="range" min="0.2" max="3" step="0.01" value="0.9" />
+        </label>
+        <label
+          >Old Y <output id="pageTransitionOldYOut">-20vh</output>
+          <input id="pageTransitionOldY" type="range" min="-80" max="40" step="1" value="-20" />
+        </label>
+        <label
+          >Next Y <output id="pageTransitionNextYOut">100vh</output>
+          <input id="pageTransitionNextY" type="range" min="0" max="120" step="1" value="100" />
+        </label>
+        <label
+          >Dark <output id="pageTransitionDarkOut">0.50</output>
+          <input id="pageTransitionDark" type="range" min="0" max="1" step="0.01" value="0.5" />
+        </label>
+        <label class="motion-debug-wide"
+          >Ease
+          <select id="pageTransitionEase">
+            <option value="parallax">parallax</option>
+            <option value="power2.out">power2.out</option>
+            <option value="power3.out">power3.out</option>
+            <option value="power4.out">power4.out</option>
+            <option value="power3.inOut">power3.inOut</option>
+            <option value="power4.inOut">power4.inOut</option>
+            <option value="expo.inOut" selected>expo.inOut</option>
+          </select>
+        </label>
+        <div class="motion-debug-actions">
+          <button id="pageTransitionApply" type="button">Apply page</button>
+          <button id="pageTransitionReplay" type="button">Replay page</button>
+        </div>
+      </form>
+    </details>
+
+    <details class="motion-debug pixelation-debug" id="pixelationDebugPanel" aria-label="Панель пикселизации бренда">
+      <summary>Pixel</summary>
+      <form id="pixelationDebugForm" class="motion-debug-form">
+        <label
+          >Text <output id="pixelationTextSizeOut">12px</output>
+          <input id="pixelationTextSize" type="range" min="2" max="28" step="1" value="12" />
+        </label>
+        <label
+          >Logo <output id="pixelationLogoSizeOut">8px</output>
+          <input id="pixelationLogoSize" type="range" min="2" max="24" step="1" value="8" />
+        </label>
+        <label class="motion-debug-wide"
+          >Marks <output id="pixelationMarkSizeOut">8px</output>
+          <input id="pixelationMarkSize" type="range" min="2" max="24" step="1" value="8" />
+        </label>
+        <div class="motion-debug-actions motion-debug-actions-single">
+          <button id="pixelationReset" type="button">Reset pixel</button>
+        </div>
+      </form>
+    </details>
+      </div>
+    </div>
+
+    <div class="motion-trigger-guide" aria-hidden="true"></div>
+    <div class="block-motion-trigger-guide" aria-hidden="true"></div>
+
+    <div class="layout-grid-overlay" aria-hidden="true">
+      <span class="layout-grid-zone layout-grid-zone-left"></span>
+      <span class="layout-grid-zone layout-grid-zone-gap"></span>
+      <span class="layout-grid-zone layout-grid-zone-right"></span>
+      <span class="layout-grid-line layout-grid-line-left"></span>
+      <span class="layout-grid-line layout-grid-line-mid-a"></span>
+      <span class="layout-grid-line layout-grid-line-mid-b"></span>
+      <span class="layout-grid-line layout-grid-line-right"></span>
+    </div>
+
+  </body>
+</html>
