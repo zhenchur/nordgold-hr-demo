@@ -96,6 +96,10 @@ body {
   overflow-x: hidden;
 }
 
+.desktop-demo-gate {
+  display: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -1138,6 +1142,110 @@ button {
 }
 
 /* ==========================================================================
+   Brand Preloader
+   ========================================================================== */
+
+.is-brand-preloading,
+.is-brand-preloading body {
+  overflow: hidden;
+}
+
+.brand-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  overflow: clip;
+  background: var(--white);
+  color: var(--black);
+  pointer-events: auto;
+}
+
+.brand-preloader-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: var(--layout-left-col) var(--layout-gap-col) minmax(0, 1fr);
+  align-items: start;
+  padding: max(0px, calc(50svh - 81px)) var(--site-pad-x) 0;
+}
+
+.brand-preloader-logo {
+  display: block;
+  width: 161px;
+  height: auto;
+  grid-column: 1;
+  backface-visibility: hidden;
+}
+
+.brand-preloader-title {
+  grid-column: 3;
+  width: min(680px, 100%);
+  margin: 0;
+  color: var(--black);
+  font-family: var(--font-regular);
+  font-size: 92px;
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: 0;
+}
+
+.brand-preloader-title-line {
+  display: block;
+  backface-visibility: hidden;
+  transform-origin: 50% 0%;
+}
+
+@media (max-width: 1279px) {
+  html,
+  body {
+    min-width: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+  }
+
+  body > :not(.desktop-demo-gate) {
+    display: none !important;
+  }
+
+  .desktop-demo-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    min-height: 100svh;
+    place-items: center;
+    padding: 24px;
+    background: var(--white);
+    color: var(--black);
+  }
+
+  .desktop-demo-gate-inner {
+    width: min(100%, 420px);
+    text-align: left;
+  }
+
+  .desktop-demo-gate p {
+    margin: 0;
+    font-family: var(--font-regular);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .desktop-demo-gate span {
+    display: block;
+    margin-top: 18px;
+    color: rgba(22, 22, 22, 0.48);
+    font-family: var(--font-regular);
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+}
+
+/* ==========================================================================
    Debug Panel
    ========================================================================== */
 
@@ -1350,9 +1458,14 @@ button {
 .block-motion-debug .motion-debug-form,
 .mines-motion-debug .motion-debug-form,
 .page-transition-debug .motion-debug-form,
+.brand-preloader-debug .motion-debug-form,
 .pixelation-debug .motion-debug-form {
   right: 0;
   left: auto;
+}
+
+.brand-preloader-debug .motion-debug-form {
+  width: 400px;
 }
 
 .pixelation-debug .motion-debug-form {

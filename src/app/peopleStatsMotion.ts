@@ -2,6 +2,8 @@ import type { MinesMotionPhaseSettings, MinesMotionSettings } from "./minesMotio
 
 export type PeopleStatsMotionSettings = MinesMotionSettings;
 
+export const peopleStatsHoldDuration = 3.6;
+
 const peopleStatsMotionDefaults: PeopleStatsMotionSettings = {
   targetStagger: 0.035,
   phaseOffset: 0.1,

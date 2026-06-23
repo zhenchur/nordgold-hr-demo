@@ -2,6 +2,7 @@ import "./styles.css";
 import { initBenefitsSlider } from "./app/benefitsSlider";
 import { initBlockMotion } from "./app/blockMotion";
 import { initBlockMotionDebugControls } from "./app/blockMotionSettings";
+import { initBrandPreloader, initBrandPreloaderDebugControls } from "./app/brandPreloader";
 import { createCleanupRegistry, qsa } from "./app/dom";
 import { ScrollTrigger } from "./app/gsapSetup";
 import { createHeroShutter } from "./app/heroShutter";
@@ -30,6 +31,7 @@ pageStart.resetToTop();
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const enableDebugTools = import.meta.env.DEV;
 const enablePixelation = false;
+const brandPreloader = initBrandPreloader({ cleanup, reduceMotion });
 
 document.documentElement.classList.toggle("no-pixelation", !enablePixelation);
 
@@ -192,6 +194,15 @@ const pageTransition = initPageTransition({
   }
 });
 
+const playBrandPreloader = async () => {
+  if (pageTransition.getCurrentPath() !== "/") {
+    brandPreloader?.finish();
+    return;
+  }
+
+  await brandPreloader?.play();
+};
+
 const initMotionDebug = () => {
   if (!enableDebugTools) {
     return;
@@ -234,6 +245,17 @@ const initMotionDebug = () => {
     }
   });
 
+  initBrandPreloaderDebugControls({
+    cleanup,
+    onReplay: () => {
+      if (pageTransition.getCurrentPath() !== "/") {
+        return;
+      }
+
+      void brandPreloader?.replay();
+    }
+  });
+
   if (pixelation) {
     initPixelationDebugControls({
       cleanup,
@@ -258,8 +280,11 @@ if (!reduceMotion) {
       await nextFrame();
 
       if (!heroShutter) {
+        await playBrandPreloader();
         ScrollTrigger.refresh();
         markAppReady();
+        await nextFrame();
+        brandPreloader?.finish();
         return;
       }
 
@@ -272,9 +297,11 @@ if (!reduceMotion) {
       const mountedHeroShutter = heroShutter;
       mountedHeroShutter.resetMask();
       ScrollTrigger.refresh();
+      await playBrandPreloader();
       reveal?.resumeViewportPlay();
       markAppReady();
       await nextFrame();
+      brandPreloader?.finish();
       mountedHeroShutter.playMask();
       ScrollTrigger.update();
     })();
@@ -301,6 +328,7 @@ if (!reduceMotion) {
     void (async () => {
       await waitForFonts();
       await nextFrame();
+      await playBrandPreloader();
 
       if (pageTransition.getCurrentPath() === "/") {
         pageStart.resetToTop();
@@ -312,6 +340,8 @@ if (!reduceMotion) {
       reveal?.resumeViewportPlay();
       ScrollTrigger.refresh();
       markAppReady();
+      await nextFrame();
+      brandPreloader?.finish();
     })();
   };
 

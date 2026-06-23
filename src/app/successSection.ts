@@ -34,6 +34,7 @@ function renderSuccessTabs(root: HTMLElement) {
     } else {
       link.dataset.successTab = String(index);
     }
+    link.dataset.motionPreserveTransform = "true";
     label.textContent = tab.label;
     count.textContent = `(${tab.count})`;
 

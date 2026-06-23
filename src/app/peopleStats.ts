@@ -4,6 +4,7 @@ import { gsap, ScrollTrigger } from "./gsapSetup";
 import {
   getPeopleStatsPhaseFromVars,
   getPeopleStatsPhaseToVars,
+  peopleStatsHoldDuration,
   readPeopleStatsMotionSettings,
   type PeopleStatsMotionSettings
 } from "./peopleStatsMotion";
@@ -255,7 +256,7 @@ export function initPeopleStats({ cleanup, reduceMotion }: PeopleStatsOptions) {
       return;
     }
 
-    timer = gsap.delayedCall(3.6, () => {
+    timer = gsap.delayedCall(peopleStatsHoldDuration, () => {
       timer = undefined;
       show((current + 1) % peopleStats.length);
       startAutoplay();

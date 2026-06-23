@@ -14,5 +14,5 @@
     "noUnusedParameters": true,
     "strict": true
   },
-  "include": ["src"]
+  "include": ["src", "hero-mask-demo/src", "scroll-animations-demo/src"]
 }

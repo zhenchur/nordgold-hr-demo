@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" class="is-booting">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Mask Demo</title>
+    <script type="module" src="./src/main.ts"></script>
+  </head>
+  <body>
+    <main class="hero-mask-page">
+      <section class="hero" aria-label="Hero mask demo">
+        <div class="hero-stage" data-hero-stage>
+          <div class="scene">
+            <div class="media" id="media">
+              <div class="hero-visuals" data-hero-visuals aria-hidden="true">
+                <div class="hero-visual is-active" data-hero-depth-target></div>
+              </div>
+              <div class="veil"></div>
+              <div class="hero-copy" data-hero-copy aria-hidden="true"></div>
+            </div>
+            <svg class="mask-svg" id="maskSvg" aria-hidden="true">
+              <polygon id="maskSector"></polygon>
+            </svg>
+            <svg class="guide-svg" id="guideSvg" aria-hidden="true">
+              <line id="upperRay" />
+              <line id="lowerRay" />
+              <line id="axisLine" />
+              <line id="travelLine" />
+              <line id="yLine" />
+              <circle id="centerDot" r="6" />
+              <circle id="travelDot" r="10" />
+            </svg>
+          </div>
+        </div>
+        <div class="mask-anchor" id="vacancies" aria-hidden="true"></div>
+        <div class="lock" aria-hidden="true"></div>
+      </section>
+    </main>
+
+    <div class="debug-dock" aria-label="Mask settings">
+      <input class="debug-dock-toggle-input" id="debugPanelsToggle" type="checkbox" />
+      <label class="debug-dock-toggle" for="debugPanelsToggle">Panels</label>
+      <div class="debug-dock-panels">
+        <details class="debug" id="debug">
+          <summary>Mask</summary>
+          <form class="debug-form" id="debugForm">
+            <label>
+              Back <output id="backgroundColorOut">#ffffff</output>
+              <input id="backgroundColor" type="color" value="#ffffff" />
+            </label>
+            <label>
+              Mask <output id="maskColorOut">#A3AD00</output>
+              <input id="maskColor" type="color" value="#a3ad00" />
+            </label>
+            <label>
+              Center X <output id="centerXOut">6.5%</output>
+              <input id="centerX" type="range" min="0" max="100" step="0.5" value="6.5" />
+            </label>
+            <label>
+              Center Y <output id="centerYOut">77.0%</output>
+              <input id="centerY" type="range" min="0" max="100" step="0.5" value="77" />
+            </label>
+            <label>
+              Upper <output id="upperOut">110deg</output>
+              <input id="upperOpen" type="range" min="0" max="180" step="1" value="110" />
+            </label>
+            <label>
+              Lower <output id="lowerOut">15deg</output>
+              <input id="lowerOpen" type="range" min="0" max="180" step="1" value="15" />
+            </label>
+            <label>
+              Axis <output id="axisOut">-19deg</output>
+              <input id="axisDeg" type="range" min="-180" max="180" step="1" value="-19" />
+            </label>
+            <label>
+              Travel <output id="travelOut">50.0%</output>
+              <input id="travelFrom" type="range" min="0" max="70" step="0.5" value="50" />
+            </label>
+            <label>
+              Y offset <output id="yOut">+42.0%</output>
+              <input id="yOffset" type="range" min="-160" max="160" step="0.5" value="42" />
+            </label>
+            <label>
+              Duration <output id="durationOut">1.00s</output>
+              <input id="duration" type="range" min="0.2" max="3" step="0.01" value="1" />
+            </label>
+            <label>
+              Media speed <output id="mediaScrollOut">0.35x</output>
+              <input id="mediaScrollFactor" type="range" min="0" max="1" step="0.01" value="0.35" />
+            </label>
+            <label>
+              Ease
+              <select id="ease">
+                <option value="none">none</option>
+                <option value="power2.out">power2.out</option>
+                <option value="power3.out">power3.out</option>
+                <option value="power4.out" selected>power4.out</option>
+                <option value="power2.inOut">power2.inOut</option>
+                <option value="power3.inOut">power3.inOut</option>
+                <option value="expo.inOut">expo.inOut</option>
+              </select>
+            </label>
+            <div class="debug-actions">
+              <button id="resetMask" type="button">Reset</button>
+              <button id="finalMask" type="button">Final</button>
+              <label class="check"><input id="showGuide" type="checkbox" /> Guides</label>
+            </div>
+          </form>
+        </details>
+        <button class="debug-quick-play" id="playMask" type="button">Play</button>
+      </div>
+    </div>
+  </body>
+</html>
