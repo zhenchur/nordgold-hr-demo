@@ -12,6 +12,12 @@
       html.is-booting body {
         visibility: hidden;
       }
+
+      @media (max-width: 1279px) {
+        html.is-booting body {
+          visibility: visible;
+        }
+      }
     </style>
     <noscript>
       <style>
@@ -20,10 +26,19 @@
         }
       </style>
     </noscript>
-    <script type="module" crossorigin src="/nordgold-hr-demo/assets/index-BDUSYfsd.js"></script>
-    <link rel="stylesheet" crossorigin href="/nordgold-hr-demo/assets/index-boQgEJOE.css">
+    <script type="module" crossorigin src="/nordgold-hr-demo/assets/main-7ZdugRBR.js"></script>
+    <link rel="modulepreload" crossorigin href="/nordgold-hr-demo/assets/gsap-C81z-gCV.js">
+    <link rel="modulepreload" crossorigin href="/nordgold-hr-demo/assets/lenis-IGQjtelm.js">
+    <link rel="stylesheet" crossorigin href="/nordgold-hr-demo/assets/main-CKFTtD6M.css">
   </head>
   <body data-barba="wrapper">
+    <aside class="desktop-demo-gate" aria-label="Доступность демо">
+      <div class="desktop-demo-gate-inner">
+        <p>Демо доступно только для десктопных платформ</p>
+        <span>Откройте страницу на экране от 1280 px.</span>
+      </div>
+    </aside>
+
     <main data-barba="container" data-barba-namespace="home" data-route-page="/">
       <section class="hero" aria-label="Карьера">
         <div class="hero-stage" data-hero-stage>
@@ -966,6 +981,101 @@
         <div class="motion-debug-actions">
           <button id="pageTransitionApply" type="button">Apply page</button>
           <button id="pageTransitionReplay" type="button">Replay page</button>
+        </div>
+      </form>
+    </details>
+
+    <details
+      class="motion-debug brand-preloader-debug"
+      id="brandPreloaderDebugPanel"
+      aria-label="Панель бренд-прелоадера"
+    >
+      <summary>Brand load</summary>
+      <form id="brandPreloaderDebugForm" class="motion-debug-form">
+        <label
+          >Stagger <output id="brandPreloaderStaggerOut">0.120</output>
+          <input id="brandPreloaderStagger" type="range" min="0" max="0.16" step="0.005" value="0.120" />
+        </label>
+        <label
+          >Enter <output id="brandPreloaderEnterDurationOut">0.70s</output>
+          <input id="brandPreloaderEnterDuration" type="range" min="0.1" max="2" step="0.01" value="0.70" />
+        </label>
+        <label
+          >Enter Y % <output id="brandPreloaderEnterYPercentOut">120</output>
+          <input id="brandPreloaderEnterYPercent" type="range" min="-160" max="160" step="1" value="120" />
+        </label>
+        <label
+          >Enter RotateX <output id="brandPreloaderEnterRotateXOut">-90deg</output>
+          <input id="brandPreloaderEnterRotateX" type="range" min="-180" max="180" step="1" value="-90" />
+        </label>
+        <label
+          >Enter Opacity <output id="brandPreloaderEnterOpacityOut">0</output>
+          <input id="brandPreloaderEnterOpacity" type="range" min="0" max="1" step="0.05" value="0" />
+        </label>
+        <label
+          >Enter Persp. <output id="brandPreloaderEnterPerspectiveOut">400</output>
+          <input id="brandPreloaderEnterPerspective" type="range" min="400" max="3200" step="50" value="400" />
+        </label>
+        <label class="motion-debug-wide"
+          >Enter ease
+          <select id="brandPreloaderEnterEase">
+            <option value="none">none</option>
+            <option value="power2.out">power2.out</option>
+            <option value="power3.out">power3.out</option>
+            <option value="power4.out" selected>power4.out</option>
+            <option value="power2.inOut">power2.inOut</option>
+            <option value="power3.inOut">power3.inOut</option>
+            <option value="power4.inOut">power4.inOut</option>
+            <option value="expo.out">expo.out</option>
+            <option value="circ.out">circ.out</option>
+          </select>
+        </label>
+        <label
+          >Hold <output id="brandPreloaderHoldDurationOut">0.50s</output>
+          <input id="brandPreloaderHoldDuration" type="range" min="0" max="6" step="0.05" value="0.50" />
+        </label>
+        <label
+          >Exit <output id="brandPreloaderExitDurationOut">0.70s</output>
+          <input id="brandPreloaderExitDuration" type="range" min="0.1" max="2" step="0.01" value="0.70" />
+        </label>
+        <label
+          >Exit Y % <output id="brandPreloaderExitYPercentOut">-30</output>
+          <input id="brandPreloaderExitYPercent" type="range" min="-160" max="160" step="1" value="-30" />
+        </label>
+        <label
+          >Exit RotateX <output id="brandPreloaderExitRotateXOut">42deg</output>
+          <input id="brandPreloaderExitRotateX" type="range" min="-180" max="180" step="1" value="42" />
+        </label>
+        <label
+          >Exit Opacity <output id="brandPreloaderExitOpacityOut">0</output>
+          <input id="brandPreloaderExitOpacity" type="range" min="0" max="1" step="0.05" value="0" />
+        </label>
+        <label
+          >Exit Persp. <output id="brandPreloaderExitPerspectiveOut">3200</output>
+          <input id="brandPreloaderExitPerspective" type="range" min="400" max="3200" step="50" value="3200" />
+        </label>
+        <label class="motion-debug-wide"
+          >Exit ease
+          <select id="brandPreloaderExitEase">
+            <option value="none">none</option>
+            <option value="power1.in">power1.in</option>
+            <option value="power2.in">power2.in</option>
+            <option value="power3.in">power3.in</option>
+            <option value="power2.out">power2.out</option>
+            <option value="power3.out">power3.out</option>
+            <option value="power2.inOut">power2.inOut</option>
+            <option value="power3.inOut" selected>power3.inOut</option>
+            <option value="expo.in">expo.in</option>
+            <option value="circ.in">circ.in</option>
+          </select>
+        </label>
+        <label class="motion-debug-wide"
+          >After <output id="brandPreloaderAfterExitHoldOut">0.10s</output>
+          <input id="brandPreloaderAfterExitHold" type="range" min="0" max="1" step="0.01" value="0.10" />
+        </label>
+        <div class="motion-debug-actions">
+          <button id="brandPreloaderApply" type="button">Apply brand</button>
+          <button id="brandPreloaderReplay" type="button">Replay brand</button>
         </div>
       </form>
     </details>
